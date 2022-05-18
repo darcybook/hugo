@@ -1,0 +1,31 @@
+---
+layout: page
+tags: [api]
+title: fyne.ShortcutPaste
+package: fyne.io/fyne/v2
+---
+
+# fyne.ShortcutPaste
+---
+```go
+import "fyne.io/fyne/v2"
+```
+
+## Usage
+
+#### type ShortcutPaste
+
+```go
+type ShortcutPaste struct {
+	Clipboard Clipboard
+}
+```
+
+ShortcutPaste describes a shortcut paste action.
+
+#### func (*ShortcutPaste) ShortcutName
+
+```go
+func (se *ShortcutPaste) ShortcutName() string
+```
+ShortcutName returns the shortcut name
