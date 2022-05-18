@@ -13,8 +13,8 @@ categories = [
     "golang",
 ]
 menu = "main"
+weight=10
 +++
-
 ## Getting Started
 
 Using the Fyne toolkit to build cross platform applications is very simple but does require some tools to be installed before you can begin. If your computer is set up for development with Go then the following steps may not be required, but we advise reading the tips for your operating system just in case. If later steps in this tutorial fail then you should re-visit the prerequisites below.
@@ -25,10 +25,7 @@ Fyne requires 3 basic elements to be present, the Go tools (at least version 1.1
 
 Note that these steps are just required for development - your Fyne applications will not require any setup or dependency installation for end users!
 
-{% include tabs.html bodyclass="fullborder" tabs=page.install id="install" %}
-
-<div id="install__windows" class="hidden">
-<div style="text-align: left" markdown="1">
+### windows
 
 1. Download Go from the [download page](https://golang.org/dl/) and follow instructions
 2. Install one of the available C compilers for windows, the following are tested with Go and Fyne:
@@ -50,11 +47,7 @@ The steps for installing with MSYS2 (recommended) are as follows:
 
         $ echo "export PATH=$PATH:/c/Program\ Files/Go/bin:~/Go/bin" >> ~/.bashrc
 
-</div>
-</div>
-
-<div id="install__macos" class="hidden">
-<div style="text-align: left" markdown="1">
+### macos
 
 1. Download Go from the [download page](https://golang.org/dl/) and follow instructions
 2. Install Xcode from the [Mac App Store](https://apps.apple.com/us/app/xcode/id497799835?mt=12)
@@ -62,11 +55,7 @@ The steps for installing with MSYS2 (recommended) are as follows:
     `xcode-select --install`
 4. In macOS the graphics drivers will already be installed.
 
-</div>
-</div>
-
-<div id="install__linux" class="hidden">
-<div style="text-align: left" markdown="1">
+### linux
 
 * You will need to install Go, gcc and the graphics library header files using your package manager, one of the following commands will probably work.
 * **Debian / Ubuntu:**
@@ -82,44 +71,27 @@ The steps for installing with MSYS2 (recommended) are as follows:
 * **Void Linux:**
 `sudo xbps-install -S go base-devel xorg-server-devel libXrandr-devel libXcursor-devel libXinerama-devel`
 
-</div>
-</div>
-
-<div id="install__rpi" class="hidden">
-<div style="text-align: left" markdown="1">
+### rpi
 
 * You will need to install Go, gcc and the graphics library header files using the package manager.
 * `sudo apt-get install golang gcc libegl1-mesa-dev xorg-dev`
 
-</div>
-</div>
-
-<div id="install__bsd" class="hidden">
-<div style="text-align: left" markdown="1">
+### bsd
 
 * You will need to install Go, gcc and the graphics library header files using the package manager.
 * **FreeBSD:**
 `sudo pkg install go gcc xorg pkgconf`
-</div>
-</div>
 
-<div id="install__android" class="hidden">
-<div style="text-align: left" markdown="1">
+### android
 
 * To develop apps for Android you will first need to install the tools for your current computer (Windows, macOS or Linux)
 * Once complete you will need to install the Android SDK and Android NDK - the recommended approach is to install [Android Studio](https://developer.android.com/studio/index.html) and then go to **Tools > SDK Manager** and from **SDK Tools** install the **NDK (Side by side)** package.
 
-</div>
-</div>
-
-<div id="install__ios" class="hidden">
-<div style="text-align: left" markdown="1">
+### ios
 
 * To develop apps for iOS you will need access to an Apple Mac computer, configured according to the **macOS** tab above.
 * You will also need to create an [Apple Developer account](https://developer.apple.com) and sign up to the developer program (costs apply) to obtain the necessary certificate to run your app on any devices.
 
-</div>
-</div>
 
 <script type="text/javascript">
 
