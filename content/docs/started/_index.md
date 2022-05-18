@@ -1,6 +1,6 @@
 ---
 bookCollapseSection: true
-title: Getting Started
+title: 入门
 weight: 10
 ---
 
