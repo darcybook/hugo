@@ -1,0 +1,5 @@
+{
+    "markdown-image.base.fileNameFormat": "${mdname}-${mm}-${mss}-${rand,10}",
+    "markdown-image.local.path": "/themes/hugo-book/static/mk_img",
+    "markdown-image.local.referencePath": "/mk_img/"
+}
