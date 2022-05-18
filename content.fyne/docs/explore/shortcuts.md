@@ -1,10 +1,21 @@
----
-layout: page
-title: Adding Shortcuts to an App
++++
+title = "Adding Shortcuts to an App"
+description = "Adding Shortcuts to an App"
+tags = [
+    "go",
+    "golang",
+    "hugo",
+    "development",
+]
+date = "2022-05-18"
+categories = [
+    "Development",
+    "golang",
+]
+menu = "main"
+weight=60
++++
 
-redirect_from:
-- /tutorial/shortcuts
----
 
 Shortcuts are common tasks that can be triggered by keyboard combinations or context menus. Shortcuts, much like keyboard events, can be attached to a focused element or registered on the `Canvas` to always be available in a `Window`.
 

@@ -1,9 +1,21 @@
----
-layout: page
-title: Data Binding
++++
+title = "Data Binding"
+description = "Data Binding"
+tags = [
+    "go",
+    "golang",
+    "hugo",
+    "development",
+]
+date = "2022-05-18"
+categories = [
+    "Development",
+    "golang",
+]
+menu = "main"
+weight=80
++++
 
-since: 2.0
----
 
 Data binding was introduced in Fyne v2.0.0 and makes it easier to connect
 many widgets to a data source that will update over time.

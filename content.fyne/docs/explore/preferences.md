@@ -1,12 +1,21 @@
----
-layout: page
-title: Using the Preferences API
++++
+title = "Using the Preferences API"
+description = "Using the Preferences API"
+tags = [
+    "go",
+    "golang",
+    "hugo",
+    "development",
+]
+date = "2022-05-18"
+categories = [
+    "Development",
+    "golang",
+]
+menu = "main"
+weight=70
++++
 
-redirect_from:
-- /develop/preferences-api.html
-- /tutorial/preferences-api
-- /tutorial/preferences
----
 
 Storing user configurations and values is a common task for application developers, but implementing it across multiple platforms can be tedious and time-consuming. To make it easier, Fyne has an API for storing values on the filesystem in a clean and understandable way while the complex parts are handled for you.
 

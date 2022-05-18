@@ -1,0 +1,31 @@
+---
+layout: page
+tags: [api]
+title: fyne.ShortcutCut
+package: fyne.io/fyne/v2
+---
+
+# fyne.ShortcutCut
+---
+```go
+import "fyne.io/fyne/v2"
+```
+
+## Usage
+
+#### type ShortcutCut
+
+```go
+type ShortcutCut struct {
+	Clipboard Clipboard
+}
+```
+
+ShortcutCut describes a shortcut cut action.
+
+#### func (*ShortcutCut) ShortcutName
+
+```go
+func (se *ShortcutCut) ShortcutName() string
+```
+ShortcutName returns the shortcut name
