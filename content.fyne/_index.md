@@ -36,17 +36,17 @@ To run a showcase of the features of Fyne execute the following:
 
 And you should see something like this (after you click a few buttons):
 
-![图 1](/mk_img/_index-00-851-8.png)  
+![图 1](/mk_img/index-00-851-8.png)  
 
 
 Or if you are using the light theme:
 
-![图 2](/mk_img/_index-01-458-4.png)  
+![图 2](/mk_img/index-01-458-4.png)  
 
 
 And even running on a mobile device:
 
-![图 3](/mk_img/_index-01-729-6.png)  
+![图 3](/mk_img/index-01-729-6.png)  
 
 
 # Getting Started
@@ -88,7 +88,7 @@ And you can run that simply as:
 
 It should look like this:
 
-![图 4](/mk_img/_index-01-675-4.png)  
+![图 4](/mk_img/index-01-675-4.png)  
 
 
 > Note that Windows applications load from a command prompt by default, which means if you click an icon you may see a command window.
