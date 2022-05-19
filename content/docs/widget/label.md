@@ -1,5 +1,5 @@
 ---
-title: Label
+title: 标签
 weight: 10
 redirect_from:
   - /widget/
@@ -7,15 +7,12 @@ redirect_from:
   - /tour/widget/
 ---
 
-Widgets are the main components of a Fyne application GUI, they can be
-used in any place that a basic `fyne.CanvasObject` can. They manage user
-interactions and will always match the current theme.
+组件是`Fyne`应用程序GUI的主要组件，它们可以在基本可以`fyne.CanvasObject`的任何地方使用。它们管理用户交互，并将始终与当前主题匹配。fyne.CanvasObject
 
-The Label widget is the simplest of them - it presents text to the user.
-Unlike `canvas.Text` it can handle some simple formatting (such as `\n`)
-and wrapping (by setting the `Wrapping` field).
-You can create a label by calling `widget.NewLabel("some text")`, the
-result can be assigned to a variable or passed directly into a container.
+标签组件是其中最简单的 -- 它向用户显示文本。
+和`canvas.Text`不同，它可以处理一些转义（such as `\n`）和一些换行（通过`Wrapping`设置）。
+你可以通过调用`widget.NewLabel("some text")`来创建标签，可以分配一个变量或者直接传给容器。
+
 
 ```go
 package main

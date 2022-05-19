@@ -1,22 +1,19 @@
 ---
-title: Entry
+title: 输入框
 weight: 30
 redirect_from:
   - /tour/widget/entry
 ---
 
-The entry widget is used for user input of simple text content.
-An entry can be created with a simple `widget.NewEntry()`
-constructing function. When you create the widget keep a
-reference so that you can access its `Text` field later.
-It is also possible to use the `OnChanged` callback function
-to be notified every time the content changes.
+# 输入框
 
-Entry widgets can also have validation for verifying the text
-input typed into it. This can be done by setting the `Validator`
-field to a `fyne.StringValidator`. You can also set a `PlaceHolder`
-text and also set the entry to `MultiLine` to accept more than one
-line of text.
+用户通过输入可以输入一些简单的文本内容。
+`widget.NewEntry()`可以建立一个输入框。
+当你建立组件时要记住名称，方便之后访问`Text`属性。
+`OnChanged`回调函数，可以在每次内容修改后触发。
+
+输入空间还可以验证输入的内容类型 -- `Validator`属性设置一个`fyne.StringValidator`。`PlaceHolder`、`MultiLine`都是可以设置的。
+
 
 ```go
 package main
@@ -44,6 +41,4 @@ func main() {
 	myWindow.ShowAndRun()
 }
 ```
-
-You can also create a password entry (where the content is
-obscured) using the `NewPasswordEntry()` function.
+`NewPasswordEntry()`可以设置一个密码输入框（输入的内容会遮蔽）。

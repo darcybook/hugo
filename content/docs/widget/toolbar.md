@@ -1,32 +1,20 @@
 ---
-title: Toolbar
+title: 工具栏
 weight: 70
 redirect_from:
   - /tour/widget/toolbar
 ---
 
-The toolbar widget creates a row of action buttons using
-icons to represent each. The `widget.NewToolbar(...)`
-constructor function takes a list of `widget.ToolbarItem`
-parameters. The builtin types of toolbar items are action,
-separator and spacer.
+# 工具栏
+---
+工具栏组件用不同图标建立一行操作按钮。`widget.NewToolbar(...)`函数可以传一个`widget.ToolbarItem`数组。内建的组件类型有操作按钮、分隔符、和间隔符。
 
-The most used item is an action that is created using the
-`widget.NewToolbarItemAction(..)` function. An action takes
-two parameters, first being the icon resource to draw and
-the latter is the `func()` to call when tapped. This creates
-a standard toolbar button.
+`widget.NewToolbarItemAction(..)`创建一个最常用的操作。一个操作包含两个参数，一个是图标资源，另一个是`func()`回调函数。
 
-You can use `widget.NewToolbarSeparator()` to create a
-small divider between items in a toolbar (usually a thin
-vertical line). Lastly you can use `widget.NewToolbarSpacer()`
-to create a flexible space between elements. This is most
-useful to right align the toolbar items that are listed
-after the spacer.
+`widget.NewToolbarSeparator()`创建一个分隔符（通常是垂直的线）在工具栏中分割action。可以使用`widget.NewToolbarSpacer()`灵活的在action之间创建空间。
 
-A toolbar should always be at the top of the content area
-so it's normal to add it to a `fyne.Container` using the
-`layout.BorderLayout` to align it above other content.
+一个工具栏应该使用在区域最上面，通常使用`layout.BorderLayout`加到 `fyne.Container`容器中。
+
 
 ```go
 package main

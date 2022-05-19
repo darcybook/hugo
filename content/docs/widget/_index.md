@@ -1,6 +1,6 @@
 ---
 bookCollapseSection: true
-title: Widgets
+title: 组件
 weight: 50
 ---
 

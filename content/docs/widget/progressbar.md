@@ -1,24 +1,22 @@
 ---
-title: ProgressBar
+title: 进度条
 weight: 60
 redirect_from:
   - /tour/widget/progressbar
 ---
 
-The progress bar widget has two forms, the standard progress bar
-shows the user which `Value` has been reached, from `Min` to
-`Max`. The default min is `0.0` and the max defaults to `1.0`.
-To use the default values just call `widget.NewProgressBar()`.
-After creating you can set the `Value` field.
+# 进度条
+---
+进度条组件有两种样式，一种显示已经到达`Value`，从`Min`到`Max`。
+默认最小值为`0.0`最大值为`1.0`。
+调用`widget.NewProgressBar()`直接使用默认值创建组件。
+创建之后你可以设置当前`Value`。
 
-To set up a custom range you can set `Min` and `Max` fields
-manually. The label will always show the percentage completion.
+设置自定义的范围，你可以手动设置`Min` 和 `Max`字段。标签始终显示的是完成的百分比。
 
-The other form of progress widget is the infinite progress bar.
-This version simply shows that some activity is ongoing by
-moving a segment of the bar from left to right and back again.
-You create this using `widget.NewProgressBarInfinite()` and
-it will start animating as soon as it is shown.
+另一种形式是无限进度条，这个版本进度条左右来回往复。
+调用`widget.NewProgressBarInfinite()` 创建，并会立即动起来。
+
 
 ```go
 package main

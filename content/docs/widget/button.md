@@ -1,25 +1,21 @@
 ---
-title: Button
+title: 按钮
 weight: 20
 redirect_from:
   - /tour/widget/button
 ---
 
-The button widget can contain text, an icon or both, the constructor
-functions are `widget.NewButton()` and `widget.NewButtonWithIcon()`.
-To create a text button there are just 2 parameters, the `string` content
-and a 0 parameter `func()` that will be called when the button is tapped.
-See the example for how that can be created.
+# 按钮
+---
 
-The button constructor with an icon includes an additional parameter
-which is the `fyne.Resource` which contains the icon data.
-The builtin icons within the `theme` package all adapt appropriately
-to a change in theme. You can pass in your own image if it is loaded
-as a resource - helpers such as `fyne.LoadResourceFromPath()` may assist,
-though bundling resources is recommended where possible.
+按钮组件可以包含文本，图标或者都有，可通过`widget.NewButton()`和`widget.NewButtonWithIcon()`构造。
+创建一个文本按钮许哟啊2个参数，一个`string` 内容额一个没有参数的回调函数，点击按钮时会调用此函数。
 
-To create a button with only an icon you should pass "" as the label
-parameter to `widget.NewButtonWithIcon()`.
+带图标按钮构造函数包括一个额外参数`fyne.Resource`，参数从包含图标资料。
+`theme`包中有内建的图标，在切换主题时候会自动切换。你可以传递自己的图片 -- 通过`fyne.LoadResourceFromPath()`可以帮助加载为resource资源，尽可能的打包资源。
+
+`widget.NewButtonWithIcon()`只传递空字符串，可以建立一个只有图标的按钮。
+
 
 ```go
 package main

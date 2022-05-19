@@ -1,26 +1,22 @@
 ---
-title: Form
+title: 表单
 weight: 50
 redirect_from:
   - /tour/widget/form
 ---
+# 表单
+---
 
-The form widget is used to lay out many input fields with
-labels and optional cancel and submit buttons. In its most
-bare form it aligns labels to the left of each input widget.
-By setting OnCancel or OnSubmit the form will add a button
-bar with the specified handlers called when appropriate.
+表单组件可以展示需要带有标签的输入框，并提供一个可选的取消或提交按钮。
+没有修饰的表单，每个标签对其到输入框左侧。
+设置OnCancel或OnSubmit可以增加一个按钮栏，并可以通过回调函数触发。
 
-The widget can be created with `widget.NewForm(...)` passing
-a list of `widget.FormItem`s, or by using the
-`&widget.Form{}` syntax illustrated in the example.
-There is also a helpful `Form.Append(label, widget)` that
-can be used for an alternative syntax.
+使用多个`widget.FormItem`参数传给`widget.NewForm(...)`建立一个表单，或者示例中`&widget.Form{}`方式。
+`Form.Append(label, widget)`也可以用来构造表单。
 
-In this example we create two entries, one of which is a
-"multiline" (like HTML TextArea) to hold values.
-There is an OnSubmit handler which prints the information
-before closing the window (and therefore the application).
+在下面示例中，我们建立了两个输入框，其中一个是多行的（类似HTML中的TextArea）。
+有一个提交事件去在应用关闭前打印信息（）。
+
 
 ```go
 package main
