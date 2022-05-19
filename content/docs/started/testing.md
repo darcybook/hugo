@@ -24,7 +24,7 @@ Fyne 的 API非常容易写测试。将组件逻辑和渲染逻辑分离，我�
 
 ### 示例
 
-我们可以通过扩展我们的[Hello World](/docs/started/hello)应用程序来演示单元测试，增加让用户输入他们姓名的控件。
+我们可以通过扩展我们的[Hello World](/docs/started/helloworld)应用程序来演示单元测试，增加让用户输入他们姓名的控件。
 我们用`Label`录入姓名，一个`Entry`来显示欢迎词。我们用`container.NewVBox`将一个显示在另一个上面。
 更新的用户界面如下：
 

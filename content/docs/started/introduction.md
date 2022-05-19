@@ -137,4 +137,4 @@ Fyne 需要 3 个基本元素，即 Go 工具（至少 1.12 版）、C 编译器
 ```sh
     $ fyne_demo
 ```
-这就是它的全部内容！现在，您可以在所选的 IDE 中编写自己的 Fyne 应用程序。如果你想看到一些Fyne代码在运行，那么你可以阅读你的[你的第一个程序](https://darcybook.github.io/docs/started/helloword/)。
+这就是它的全部内容！现在，您可以在所选的 IDE 中编写自己的 Fyne 应用程序。如果你想看到一些Fyne代码在运行，那么你可以阅读你的[你的第一个程序](https://darcybook.github.io/docs/started/helloworld/)。

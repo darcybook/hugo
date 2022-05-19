@@ -21,9 +21,9 @@ weight=40
 
 ---
 
-完成[hello world](/docs/started/hello)教程或其他示例后，您将创建一个基本的用户界面。在此页面中，我们将了解如何从代码中更新 GUI 的content。
+完成[hello world](/docs/started/helloworld)教程或其他示例后，您将创建一个基本的用户界面。在此页面中，我们将了解如何从代码中更新 GUI 的content。
 
-第一步是将要更新的小部件分配给变量。在 [hello world](/docs/started/hello) 教程中，我们直接传入 `widget.NewLabel` 到 `SetContent()`，为了更新它，我们将其更改为两行不同的行，例如：
+第一步是将要更新的小部件分配给变量。在 [hello world](/docs/started/helloworld) 教程中，我们直接传入 `widget.NewLabel` 到 `SetContent()`，为了更新它，我们将其更改为两行不同的行，例如：
 
 ```go
 	clock := widget.NewLabel("")
