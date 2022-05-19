@@ -1,19 +1,17 @@
 ---
-title: Line
+title: 线
 weight: 30
 redirect_from:
   - /tour/canvas/line
 ---
 
-The `canvas.Line` object draws a line from the `Position1` (default
-is top, left) to `Position2` (default is bottom, right).
-You specify its colour and can vary the stroke width which otherwise
-defaults to `1`.
+# 线
+---
+`canvas.Line`对象从`Position1`（默认top,left）到`Position1`（默认bottom,right）绘制一条线。
+你可以指定它的颜色和笔画粗细，默认粗细为`1`。
 
-A line position can be manipulated using the `Position1` or `Position2`
-fields or by using the `Move()` and `Resize()` functions. For example 
-a 0 width area will show a vertical line whereas 0 height would be
-horizontal.
+线的位置可以通过`Position1`或`Position2`或者通过`Move()`和`Resize()`函数操作。
+例如宽度为0的区域会显示一条垂直线，0高度将显示水平线。
 
 ```go
 package main
@@ -39,6 +37,5 @@ func main() {
 }
 ```
 
-Lines are typically used in a custom layout or controlled manually.
-Unlike text they have no natural (minimum) size but can be
-used to great effect in complex layouts.
+线条通常在自定义布局中使用或手动控制。与文本不同，它们没有自然（最小）大小，但可以在复杂的布局中使用。
+

@@ -1,18 +1,18 @@
 ---
-title: Circle
+title: 圆
 weight: 40
 redirect_from:
   - /tour/canvas/circle
 ---
 
-`canvas.Circle` defines a circle shape filled by the specified
-colour. You may also set a `StrokeWidth` and therefore a different
-`StrokeColor` as shown in this example.
+# 圆
+---
 
-The circle will fill the space specified by calling `Resize()` or
-by the layout it is controlled by. As the example sets the circle
-as the window content it will resize to fill the window, within a
-basic padding (controlled by the theme).
+`canvas.Circle`定义一个指定颜色的圆形。
+你可以设置一个`StrokeWidth`或者`StrokeColor`设置不同的圆形。
+
+圆形通过`Resize()`调整填充的小时。
+由于该示例将圆圈设置为窗口content，因此它将填充真个窗口，有一个基础padding（由主题控制）。
 
 ```go
 package main
@@ -39,6 +39,4 @@ func main() {
 }
 ```
 
-All these have been basic types that can be rendered by our driver
-with no additional information. Next we will look at more complex types
-starting with [`Image`](image).
+所有这些都是基本类型，可以由我们的驱动程序呈现，而无需其他信息。接下来，我们将从 [`Image`](image) 开始查看更复杂的类型。

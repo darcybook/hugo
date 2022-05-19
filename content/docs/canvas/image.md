@@ -1,9 +1,13 @@
 ---
-title: Image
+title: 图形
 weight: 50
 redirect_from:
   - /tour/canvas/image
 ---
+
+# 图形
+---
+
 
 A `canvas.Image` represents a scalable image resource in Fyne.
 It can be loaded from a resource (as shown in the example), from an

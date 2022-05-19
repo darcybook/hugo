@@ -1,18 +1,17 @@
 ---
-title: Text
+title: 文本
 weight: 20
 redirect_from:
   - /tour/canvas/text
 ---
 
-`canvas.Text` is used for all text rendering within Fyne.
-It is created by specifying the text and colour for the text.
-Text is rendered using the default font, specified by the current theme.
+# 文本
 
-The text object allows certain configuration like the `Alignment`
-and `TextStyle` field. as illustrated in the example here.
-To use a monospaced font instead you can specify
-`fyne.TextStyle{Monospace: true}`.
+`Fyne`所有文本都用`canvas.Text`呈现。创建时需要指定文本和颜色。
+文本由当前主题默认字体呈现。
+
+文本对象允许设置`Alignment`和`TextStyle`这些值。
+例如下列示例，指定了等宽字体`fyne.TextStyle{Monospace: true}`：
 
 ```go
 package main
@@ -37,7 +36,5 @@ func main() {
 	w.ShowAndRun()
 }
 ```
-
-It is possible to use an alternative font by specifying a `FYNE_FONT`
-environment variable. Use this to set a `.ttf` file to use instead of
-the one provided in the Fyne toolkit or the current theme.
+通过`FYNE_FONT`可以设定环境变量字体。
+使用此方式设定一个`.ttf`文件，替代`Fyne`工具包或当前主题提供的字体。
