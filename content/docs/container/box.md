@@ -1,36 +1,26 @@
 ---
-title: Box
+title: 盒布局
 weight: 10
 redirect_from:
 - /tour/layout/boxlayout
 - /container/
 ---
+# 盒布局
+---
 
-As discussed in [Container and Layouts](/explore/container) elements
-within a container can be arranged using a layout. This section explores
-the builtin layouts and how to use them.
+如[容器和布局](/docs/explore/container)的描述一样，容器内的元素可以使用布局进行排列。本节探讨内置布局以及如何使用它们。
 
-The most commonly used layout is `layout.BoxLayout` and it has two variants,
-horizontal and vertical. A box layout arranges all elements in a single
-row or column with optional spaces to assist alignment.
+最常用的布局是`layout.BoxLayout`，它有两种变体，水平和垂直。Box局将所有元素排列在单个行或列中，并带有可选空间以帮助对齐。
 
-A horizontal box layout, created with `layout.NewHBoxLayout()` creates
-an arrangement of items in a single row. Every item in the box will
-have its width set to its `MinSize().Width` and the height will be
-equal for all items, the largest of all the `MinSize().Height` values.
-The layout can be used in a container or you can use the box widget
-`widget.NewHBox()`.
+水平Box布局，使用`layout.NewHBoxLayout()`创建单行中的项排列。Box中每个项目的宽度都将设置为`MinSize().Width`宽度，并且所有项目的高度都相等 -- `MinSize().Height`中最大的值。
+布局可以在容器中使用，或者你可以使用`widget.NewHBox()`box控件。
 
-A vertical box layout is similar but it arranges items in a column.
-Each item will have its height set to minimum and all the widths will
-be equal, set to the largest of the minimum widths.
+垂直框布局类似，但它在列中排列项目。每个项目的高度将设置为最小值，并且所有宽度将相等，设置为最小宽度中的最大宽度。
 
-To create an expanding space between elements (so that some are left
-aligned and the others right aligned, for example) add a `layout.NewSpacer()`
-as one of the items. A spacer will expand to fill all available space.
-Adding a spacer at the beginning of a vertical box layout will cause
-all items to be bottom aligned. You can add one to the beginning and
-end of a horizontal arrangement to create a center alignment.
+添加一个`layout.NewSpacer()`在元素之前创建一个可扩展空间（例如，是某些元素左对齐，其他）。
+一个间隔将会填充所有可用的空间。
+在一个垂直box开始增加一个间隔会导致所有元素底对齐。你可以在水平Box的开始和结束添加一个间隔创建一个居中布局。
+
 
 ```go
 package main

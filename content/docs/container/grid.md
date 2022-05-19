@@ -1,14 +1,15 @@
 ---
-title: Grid
+title: 网格布局
 weight: 20
 redirect_from:
 - /tour/layout/gridlayout
 ---
+# 网格布局
+---
 
-The grid layout lays out the elements of a container in a grid pattern
-with a fixed number of columns. Items will fill a single row until the
-number of columns is met, after this a new row will be created.
-Vertical space will be split equally between each of the rows of objects.
+网格布局以网格模式对容器的元素进行布局，网格模式具有固定数量的列。项将填充一行，直到达到列数，在此之后将创建一个新行。垂直空间将在每行对象之间平均分配。
+
+
 
 You create a grid layout using `layout.NewGridLayout(cols)` where cols
 is the number of items (columns) you wish to have in each row. This
