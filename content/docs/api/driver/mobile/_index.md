@@ -1,7 +1,25 @@
 ---
-bookCollapseSection: true
+layout: page
+tags: [api]
 title: mobile
+package: fyne.io/fyne/v2/driver/mobile
+bookCollapseSection: true
 ---
 
+# mobile
+---
+```go
+import "fyne.io/fyne/v2/driver/mobile"
+```
 
-{{<section>}}
+Package mobile provides mobile specific driver functionality.
+
+## Usage
+
+#### types
+
+ * [Device](device.html)
+ * [KeyboardType](keyboardtype.html)
+ * [Keyboardable](keyboardable.html)
+ * [TouchEvent](touchevent.html)
+ * [Touchable](touchable.html)
