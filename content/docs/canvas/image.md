@@ -7,19 +7,12 @@ redirect_from:
 
 # 图形
 ---
+`canvas.Image`是`Fyne`中可缩放的图形资源。
+它可以从资源（像示例中一样）、图像文件、包含图像的url，或者从内存中的`io.Reader`对象或`image.Image`。
 
-
-A `canvas.Image` represents a scalable image resource in Fyne.
-It can be loaded from a resource (as shown in the example), from an
-image file, from a URI location containing an image, from an `io.Reader`, or from a Go `image.Image` in memory.
-
-The default image fill mode is `canvas.ImageFillStretch` which will
-cause it to fill the space specified (through `Resize()` or layout).
-Alternatively you could use `canvas.ImageFillContain` to ensure that
-the aspect ratio is maintained and the image is within the bounds.
-Further to this you can use `canvas.ImageFillOriginal` (as used
-in the example here) which ensures that it will also have a minimum size
-equal to that of the original image size.
+默认图形填充方式是`canvas.ImageFillStretch`，可以让它填充指定的空间（通过`Resize()`或者layout布局）。
+或者，可以使用`canvas.ImageFillContain`来确保图形的纵横比例在指定范围内。
+进一步，可以使用`canvas.ImageFillOriginal`（例如下例），确保纵横比例的同时确保一个最小尺寸。
 
 ```go
 package main
@@ -46,10 +39,6 @@ func main() {
 }
 ```
 
-Images can be bitmap based (like PNG and JPEG) or vector based
-(such as SVG). Where possible we recommend scalable images as they will
-continue to render well as sizes change.
-Be careful when using original image sizes as they may not
-behave exactly as expected with different user interface scales.
-As Fyne allows the entire user interface to scale a 25px image file
-may not be the same height as a 25 height fyne object.
+图像可以基于位图（如 PNG 和 JPEG）或基于矢量（如 SVG）。
+在可能的情况下，我们建议使用矢量图像，因为它们会随着尺寸的变化而继续很好地呈现。
+使用原始图像大小时要小心，因为它们在使用不同的用户界面比例时可能无法完全按照预期运行。由于Fyne允许整个用户界面缩放25px图像文件，因此可能与25高度fyne对象的高度不同。

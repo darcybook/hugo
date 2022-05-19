@@ -1,21 +1,17 @@
 ---
-title: Animation
+title: 动画
 weight: 70
 since: 2.0
 ---
 
-Fyne includes an animation framework that allows you to smoothly transition canvas properties from
-one value to another over time. An animation can contain any code which means that any types of object
-attributes can be managed, however there are builtin animations for size, position and color.
+`Fyne` 包含一个动画框架，允许您随着时间的推移将画布属性从一个值平滑地过渡到另一个值。动画可以包含任何代码，这意味着可以管理任何类型的对象属性，但是只能有针对大小，位置和颜色的内置动画。
 
-Animations are normally created using the builtin helpers of the canvas package, such as `NewSizeAnimation`,
-and calling `Start()` on the created animation. You can set animations to repeat or auto reverse, as we will see below.
+动画通常使用画布包内置工具（`NewSizeAnimation`）创建，运行`Start()`调用创建的动画。您可以将动画设置为重复或自动反转，如下图所示。
 
-Let us look first at a colour animation which gradually changes the fill colour of a `Rectangle`.
-In the following code sample we set an rectangle to be set as the content of a window, as we have done in earlier code
-samples. The big difference is the animation that we start just before showing the window.
-The animation is created using `NewColorRGBAAnimation` which will transition the colour channels from the defined
-`red` state through to `blue` and it will take 2 seconds (the specified duration) to do so.
+首先用矩形演示一下颜色渐变的动画。
+在下面示例代码中，我们设置一个矩形画布，就像哦我们之前的代码一样。
+最大的不同是动画在显示窗口之前。动画用`NewColorRGBAAnimation`创建，它可使颜色从`red`变为`blue`，并且中间有2秒（指定的持续时间）的过度时间。
+
 
 ```go
 package main
@@ -51,9 +47,7 @@ func main() {
 }
 ```
 
-It is also possible to animate multiple properties at the same time. If you look carefully you will see that we
-added the rectangle into a container without layout - this means that we can manually move or resize the object.
-Let's add a new position animation that will move the `Rectangle` across the window, and automatically reverse as well.
+还可以同时对多个属性进行处理。如果你观察比较仔细，你可以看到我们的矩形没有添加到布局容器中 -- 这意味着我们可以手动指定位置和尺寸。让我们添加一个新的动画位置，这个动画奖在整个窗口中移动，并自动反转。
 
 ```go
 move := canvas.NewPositionAnimation(fyne.NewPos(0, 0), fyne.NewPos(200, 0), time.Second, obj.Move)
@@ -61,7 +55,6 @@ move.AutoReverse = true
 move.Start()
 ```
 
-Because the `Move()` function of `CanvasObject` expects a `fyne.Position` argument, and so does the position
-animation callback, we can simply pass the method name instead of creating a new function
-If you add the code above just under the first animation you will see that the object moves across the window
-at the same time as it changes colour!
+因为`CanvasObject`对象的`Move()`函数需要一个`fyne.Position`参数，并且动画回调也需要，我们可以简单的传递这个方法名称而不是新建一个新函数。
+
+如果你在第一个动画下方添加上述代码，你会看到图片在变色的同时在移动。

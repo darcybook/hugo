@@ -5,16 +5,15 @@ redirect_from:
   - /tour/canvas/raster
 ---
 
-The `canvas.Raster` is like an image but draws exactly one spot
-for each pixel on the screen. This means that as a user interface
-scales or the image resizes more pixels will be requested to fill
-the space. To do this we use a `Generator` function as illustrated in
-this example - it will be used to return the colour of each pixel.
+# 光栅
+---
 
-The generator functions can be pixel based (as in this example where we 
-generate a new random colour for each pixel) or based on full images.
-Generating complete images (with `canvas.NewRaster()`) is more efficient
-but sometimes controlling pixels directly is more convenient.
+`canvas.Raster`就像一个图像，为屏幕每个像素只绘制一个点。
+随之用户界面尺寸或图形尺寸调整，会请求更多像素填充。
+我们使用`Generator`函数 -- 它将返回每个像素的颜色。
+
+`Generator`函数可以基础像素（在下面例子中我们为每个像素生产随机颜色），也可以基础完整图像。
+生产完整图像（使用`canvas.NewRaster()`）更有效，但有时直接控制像素更方便。
 
 ```go
 package main
@@ -45,6 +44,4 @@ func main() {
 }
 ```
 
-If your pixel data is stored in an image you can load it through the
-`NewRasterFromImage()` function which will load the image to display
-pixel perfect on screen.
+如果您的像素数据存储在图像中，您可以通过`NewRasterFromImage()`功能加载它，该功能将加载图像以在屏幕上显示完美的像素。

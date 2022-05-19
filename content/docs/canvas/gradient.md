@@ -1,22 +1,18 @@
 ---
-title: Gradient
+title: 渐变
 weight: 70
 since: 1.1
 
 redirect_from:
   - /tour/canvas/gradient
 ---
+# 渐变
 
-The last canvas primitive type is Gradient, available as
-`canvas.LinearGradient` and `canvas.RadialGradient` which is used
-to draw a gradient from one colour to another in various patterns.
-You can create gradients using `NewHorizontalGradient()`,
-`NewVerticalGradient()` or `NewRadialGradient()`.
+最后一个基本画布类型是`Gradient`,使用`canvas.LinearGradient`和`canvas.RadialGradient`可以绘制一种颜色到另一种颜色的渐变。
+你可以通过`NewHorizontalGradient()`，`NewVerticalGradient()` 或者 `NewRadialGradient()`创建渐变。
 
-To create a gradient you need a start and end colour - every colour
-in between is calculated by the canvas. In this example we use 
-`color.Transparent` to show how a gradient (or any other type) could
-use an alpha value to be semi-transparent over the content behind.
+要创建渐变，首先需要一个开始和结束的颜色 -- 两者之前的每个颜色都有画布计算。
+在下面的示例中，我们使用`color.Transparent`来展示一个渐变如何使用`alpha`值设置半透明。
 
 ```go
 package main
