@@ -1,5 +1,5 @@
 +++
-title = "App Metadata"
+title = "元数据"
 description = "App Metadata"
 tags = [
     "go",
@@ -16,17 +16,17 @@ categories = [
 menu = "main"
 weight=100
 +++
+# 元数据
+---
 
 
-## App Metadata
+## App 元数据
+---
 
-Since release v2.1.0 of the `fyne` command we support a metadata file that allows you to store
-information about your application in the repository.
-This file is optional, but can help to avoid having to remember specific build parameters for
-each package and release command.
+`fyne`自v2.1.0 版本起，我们支持元数据文件，该文件允许您在存储库中存储有关应用程序的信息。此文件是可选的，但有助于避免必须记住每个包和 release 命令的特定生成参数。
 
-The file should be named `FyneApp.toml` in the directory where you run the `fyne` command
-(this is normally the `main` package). The contents of the file are as follows:
+文件需要命名为`FyneApp.toml`，目录为你运行的`fyne`目录，（通常是`main`包位置）。
+文件内容如下所示：
 
 ```toml
 Website = "https://example.com"
@@ -38,11 +38,6 @@ ID = "com.example.app"
 Version = "1.0.0"
 Build = 1
 ```
+该文件的顶部是元数据，如果将应用上传到 https://apps.fyne.io 列表页面，将使用元数据，因此它是可选的。[详细信息] 部分包含其他应用商店和操作系统在发布过程中使用的有关应用程序的数据。如果找到此文件，`fyne` 工具将使用该文件，如果元数据存在，则不需要许多必需的命令参数。您仍然可以使用命令行参数覆盖这些值。
 
-The top portion of the file is metadata that will be used if you upload
-your app to the https://apps.fyne.io listing page, so it is optional.
-The [Details] section contains data about your application that are used
-in the release process by other app stores and operating systems.
-The fyne tool will use this file if it is found, many mandatory command parameters are not required
-if the metadata is present. You can still override these values by using command line parameters.
 

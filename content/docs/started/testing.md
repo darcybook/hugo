@@ -1,5 +1,5 @@
 +++
-title = "Testing Graphical Apps"
+title = "单元测试"
 description = "Testing Graphical Apps"
 tags = [
     "go",
@@ -16,19 +16,17 @@ categories = [
 menu = "main"
 weight=60
 +++
+# 测试图形应用
 
+---
+一个好的测试组件应该时能快速写测试单元并定期运行。
+Fyne 的 API非常容易写测试。将组件逻辑和渲染逻辑分离，我们可以加载程序的时候不用显示它们来进行测试功能。
 
-Part of a good test suite is being able to quickly write tests and run them on a regular basis.
-Fyne's API is designed to make testing applications easy. By separating component logic from it's rendering definition we can load applications without actually displaying them and test the functionality completely.
+### 示例
 
-### Example
-
-We can demonstrate unit testing by extending our [Hello World](/started/hello)
-app to include space for users to input their name to be greeted.
-We start by updating the user interface to have two elements,
-a `Label` for the greeting and an `Entry` for the name input.
-We display them, one above another, using `container.NewVBox` (a
-vertical box container). The updated user interface code will look as follows:
+我们可以通过扩展我们的[Hello World](/docs/started/hello)应用程序来演示单元测试，增加让用户输入他们姓名的控件。
+我们用`Label`录入姓名，一个`Entry`来显示欢迎词。我们用`container.NewVBox`将一个显示在另一个上面。
+更新的用户界面如下：
 
 ```go
 func makeUI() (*widget.Label, *widget.Entry) {
@@ -44,9 +42,7 @@ func main() {
 	w.ShowAndRun()
 }
 ```
-
-To test this input behaviour we create a new file (with a name ending
- `_test.go` to mark it as tests) that defines a `TestGreeter` function.
+为了测试此输入动作，我们创建一个包含`TestGreeter`测试函数的的新文件（名称结尾需要是`_test.go`，才会识别位测试文件）。
 
  ```go
  package main
@@ -58,10 +54,7 @@ import (
 func TestGreeting(t *testing.T) {
 }
 ```
-
-We can add an intial test that verifies the initial state, to do this
-we test the `Text` field of the `Label` that is returned from `makeUI`
-and error the test if it is not correct. Add the following code to your test method:
+我们可以添加一个验证初始状态的初始测试，为此，我们断言`Label`的`Text`返回的字段，如果测试不正确，则抛出一个错误。将以下代码添加到测试方法中：
 
 ```go
 	out, in := makeUI()
@@ -70,12 +63,8 @@ and error the test if it is not correct. Add the following code to your test met
 		t.Error("Incorrect initial greeting")
 	}
 ```
-
-This test will pass - next we add to the test to validate the greeter.
-We use the Fyne `fyne.io/fyne/v2/test` package which assists in
-test scenarios, calling `test.Type` to simulate user input.
-The following test code will check that the output updates when the
-user's name is input (be sure to add the import as well):
+此测试将通过 -- 接下来我们新增测试区验证欢迎词。我们使用Fyne包`fyne.io/fyne/v2/test`，它被调用来模拟用户输入。
+以下测试代码将检查输入用户名时输出是否更新（请确保同时添加`import`）：
 
 ```go
 	test.Type(in, "Andy")
@@ -83,9 +72,7 @@ user's name is input (be sure to add the import as well):
 		t.Error("Incorrect user greeting")
 	}
 ```
-
-You can run all of these tests using `go test .` - just like any other tests.
-Doing so you will now see a failure - because we did not add the greeter logic. Update the `makeUI` function to the following code:
+您可以使用`go test .`全部运行 -- 就像普通的go测试一样。这样做，您现在将看到报错 -- 因为我们没有添加欢迎程序逻辑。将函数更新为以下代码：
 
 ```go
 func makeUI() (*widget.Label, *widget.Entry) {
@@ -98,11 +85,5 @@ func makeUI() (*widget.Label, *widget.Entry) {
 	return out, in
 }
 ```
-
-Doing so you will see that the tests now pass. You can also run the
-full application (using `go run .`) and see the greeting update as
-you enter a name in the `Entry` field.
-Notice also that these tests all run without displaying a window
-or stealing your mouse - this is another benefit of the Fyne unit
-testing setup.
+这样做，您将看到测试现在通过。您还可以运行完整的应用程序（使用`go run .`），并在字段中输入名称时查看问候语更新。另请注意，这些测试在没显示窗口或者拦截鼠标的情况下运行 -- 这是Fyne单元测试设置的另一个好处。
  

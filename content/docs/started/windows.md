@@ -1,5 +1,5 @@
 +++
-title = "Window Handling"
+title = "窗口处理"
 description = "Window Handling"
 tags = [
     "go",
@@ -16,30 +16,21 @@ categories = [
 menu = "main"
 weight=50
 +++
+# 窗口处理
 
-Windows are created using `App.NewWindow()` and need to be shown using
-the `Show()` function. The helper method `ShowAndRun()` on `fyne.Window`
-allows you to show your window and run the application at the same time.
+---
+Windows 是使用`App.NewWindow()`函数创建的，需要使用`Show()`函数进行显示。`fyne.Window`上`ShowAndRun()`的协助你同时显示并运行你的应用。
 
-By default a window will be the right size to show its content
-by checking the `MinSize()` function (more on that in later examples).
-You can set a larger size by calling the `Window.Resize()` method.
-Into this is passed a `fyne.Size` which contains a width and height using
-device independent pixels (meaning that it will be the same across different
-devices), for example to make a window square by default we could:
+默认情况下，在通过`MinSize()`函数，窗口大小是正好可以显示`content`。
+
+窗口的尺寸将是正确的，可以通过检查函数来显示其内容（后面的示例可以了解更多）。通过`Window.Resize()`可以设置一个更大的尺寸。函数需要传递具有长宽属性（基于设备无关像素，它在不同设备上将是相同的）的`fyne.Size`，例如默认情况下，要使用正方形，我们可以：
 
 ```go
 	w.Resize(fyne.NewSize(100, 100))
 ```
+要注意的是，桌面环境可能会显示窗口导致比实际的小。移动设备通常会忽略这一点，一般以全屏显示。
 
-Be aware that the desktop environment may have constraints that cause
-windows to be smaller than requested. Mobile devices will typically
-ignore this as they are only displayed at full-screen.
-
-If you wish to show a second window you must only call the `Show()`
-function. It can also be helpful to split `Window.Show()` from `App.Run()`
-if you want to open multiple windows when your application starts.
-The example below shows how to load two windows when starting.
+如果你向显示第二个窗口，你只需调用`Show()`。如果你的应用程序启动时，要打开多个窗口，那么将`Window.Show()` 和`App.Run()`分开是个不错的选择。下面的例子，介绍了怎么运行时打开两个窗口：
 
 ```go
 package main
@@ -66,16 +57,10 @@ func main() {
 }
 ```
 
-The above application will exit when both windows are closed. If your app
-is arranged so one window is main and the others are accessory views you
-can set one window to be "master" so that the app exits if that window
-is closed. To do this use the `SetMaster()` function on `Window`.
+上述应用程序将在两个窗口都关闭时退出。
+如果你向将应用设为一个主窗口，一个是附属窗口，你可以将主窗口设置`master`，这样主窗口关闭时，其它窗口也会关闭。在`Window`上调用`SetMaster()`，可以完成设置。
 
-Windows can be created at any time, we could change the code above so that
-the content of the second window (`w2`) is a button that opens a new
-window. You could also load windows from more complex workflows, but be
-careful because new windows will normally appear above the current active
-content.
+Windows可以随时创建，我们可以修改上面的代码，新增一个窗口（`w2`），点击一个按钮可以打开新窗口。你可以从更复杂的工作流中加载窗口，但要注意新窗口通常显示在当前活动`content`的上方。
 
 ```go
 	w2.SetContent(widget.NewButton("Open new", func() {

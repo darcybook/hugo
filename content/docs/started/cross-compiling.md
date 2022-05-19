@@ -1,5 +1,5 @@
 +++
-title = "Cross Compiling"
+title = "交叉编译"
 description = "Cross Compiling"
 tags = [
     "go",
@@ -15,36 +15,36 @@ categories = [
 menu = "main"
 weight=110
 +++
+# 交叉编译
+---
 
-
-## Compiling for different platforms
+## 不同平台交叉编译
 
 ---
 
-Cross compiling with Go is designed to be simple - we just set the environment variable `GOOS` for the target Operating System (and `GOARCH` if targeting a different architecture). Unfortunately when using native graphics calls the use of CGo in Fyne makes this a little harder.
+使用Go进行交叉编译的设计很简单 -- 我们只需为目标操作系统设置环境变量`GOOS`（`GOARCH`如果面向不同的体系结构）。不幸的是，当使用原生图形的时候调用时，在Fyne中使用CGo会使这变得更加困难。
 
-### Compiling from a development computer
 
-To cross-compile a Fyne application you will also have to set `CGO_ENABLED=1` which tells go to enable the C compiler (this is normally turned off when the target platform is different to the current system). Doing so unfortunately means that you must have a C compiler for the target platform that you are going to compile for.
-After installing the appropriate compilers you will also need to set the `CC` environment variable to tell Go which compiler to use.
+### 从开发计算机编译
 
-There are many ways to install the required tools - and different tools that can be used. The configuration recommended by the Fyne developers is:
+要交叉编译`Fyne`应用程序，您还必须设置`CGO_ENABLED=1`告诉go启用C编译器（当目标平台与当前系统不同时，通常会关闭）。不幸的是，这样做意味着您必须为要编译的目标平台提供一个C编译器。安装适当的编译器后，您还需要设置环境变量`CC`以告知 Go 要使用哪个编译器。
 
-| GOOS (target) | CC                               | provider          | download                                                    | notes                                                                                                                                                  |
-| ------------- | -------------------------------- | ----------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `darwin`      | `o32-clang`                      | osxcross          | [from github.com](https://github.com/tpoechtrager/osxcross) | You will also need to install the macOS SDK (instructions at the download link)                                                                        |
-| `windows`     | `x86_64-w64-mingw64-gcc`         | mingw64           | package manager                                             | For macOS use [homebrew](https://brew.sh)                                                                                                              |
-| `linux`       | `gcc` or `x86_64-linux-musl-gcc` | gcc or musl-cross | [cygwin](https://www.cygwin.com/) or package manager        | musl-cross is available from [homebrew](https://brew.sh) to provide the linux gcc. You will also need to install X11 and mesa headers for compilation. |
+有许多方法可以安装所需的工具 - 以及可以使用的不同工具。Fyne 开发人员推荐的配置是
 
-With the environment variables above set you should be able to compile in the usual manner.
-If further errors occur it is likely to be due to missing packages. Some target platforms require additional libraries or headers to be installed for the compilation to succeed.
 
-### Using a virtual environment
+| GOOS (target) | CC                               | provider          | download                                                    | notes                                                                                                         |
+| ------------- | -------------------------------- | ----------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `darwin`      | `o32-clang`                      | osxcross          | [from github.com](https://github.com/tpoechtrager/osxcross) | 您还需要安装 macOS SDK (instructions at the download link)                                                    |
+| `windows`     | `x86_64-w64-mingw64-gcc`         | mingw64           | package manager                                             | 对于 macOS，请使用[homebrew](https://brew.sh)                                                                 |
+| `linux`       | `gcc` or `x86_64-linux-musl-gcc` | gcc or musl-cross | [cygwin](https://www.cygwin.com/) or package manager        | musl-cross 可以从 [homebrew](https://brew.sh) 获得，以提供 linux gcc。您还需要安装 X11 和 mesa 标头进行编译。 |
 
-As a Linux system is able to cross compile to macOS and Windows easily it can be simpler to use a virtualised environment when you are not developing from Linux. Docker images are a useful tool for a complex build configuration and this works for Fyne as well. There are different tools that can be used. The tool recommended by the Fyne developers is [fyne-cross](https://github.com/fyne-io/fyne-cross). It has been inspired by [xgo](https://github.com/karalabe/xgo) and uses a [docker image](https://hub.docker.com/r/fyneio/fyne-cross) built on top of the [golang-cross](https://github.com/docker/golang-cross) image,
-that includes the MinGW compiler for windows, and a macOS SDK, along with the Fyne requirements.
+设置上述环境变量后，您应该能够以通常的方式进行编译。如果发生进一步的错误，则可能是由于缺少包。某些目标平台需要安装其他库或头文件才能成功编译。
 
-fyne-cross allows to build binaries and create distribution packages for the following targets:
+### 使用虚拟环境
+
+由于Linux系统能够轻松地交叉编译到macOS和Windows，因此当您不从Linux开发时，使用虚拟化环境会更简单。Docker 映像是复杂构建配置的有用工具，这也适用于 Fyne。可以使用不同的工具。Fyne开发人员推荐的工具是[fyne-cross](https://github.com/fyne-io/fyne-cross)。它受到 [xgo](https://github.com/karalabe/xgo)的启发，并使用构建在[golang-cross](https://github.com/docker/golang-cross)之上的[docker image](https://hub.docker.com/r/fyneio/fyne-cross)，其中包括用于`Windows`的`MinGW`编译器和`macOS SDK`以及`Fyne`要求。
+
+`fyne-cross`允许为以下目标构建二进制文件并创建分发包:
 
 | GOOS    | GOARCH |
 | ------- | ------ |
@@ -64,20 +64,20 @@ fyne-cross allows to build binaries and create distribution packages for the fol
 | freebsd | amd64  |
 | freebsd | arm64  |
 
-> Note: iOS compilation is supported only on darwin hosts.
+> 注意：iOS 编译仅在darwin主机上受支持。
 
-#### Requirements
+#### 环境需求
 
 - go >= 1.13
 - docker
 
-#### Installation
+#### 安装
 
 ```
 go get github.com/fyne-io/fyne-cross
 ```
 
-#### Usage
+#### 用法
 
 ```
 fyne-cross <command> [options]
@@ -97,40 +97,40 @@ Use "fyne-cross <command> -help" for more information about a command.
 
 #### Wildcards
 
-The `arch` flag support wildcards in case want to compile against all supported GOARCH for a specified GOOS
+`arch`标志支持通配符，以防想要针对指定 GOOS 的所有受支持的 GOARCH 进行编译。
 
-Example:
+例如:
 
 ```
 fyne-cross windows -arch=*
 ```
 
-is equivalent to
+和下面是一样的
 
 ```
 fyne-cross windows -arch=amd64,386
 ```
 
-#### Example
+#### 示例
 
-The example below cross compile and package the [fyne examples application](https://github.com/fyne-io/examples)
+下面的示例交叉编译和打包 [fyne 示例程序](https://github.com/fyne-io/examples)
 
 ```
 git clone https://github.com/fyne-io/examples.git
 cd examples
 ```
 
-##### Compile and package the main example app
+##### 编译并打开main示例应用
 
 ```
 fyne-cross linux
 ```
 
-> Note: by default fyne-cross will compile the package into the current dir.
+> 注意：默认情况下，`fyne-cross`会将包编译到当前目录中。
 >
-> The command above is equivalent to: `fyne-cross linux .`
+> 上面的命令等效于： `fyne-cross linux .`
 
-##### Compile and package a particular example app
+##### 编译和打包特定示例应用
 
 ```
 fyne-cross linux -output bugs ./cmd/bugs

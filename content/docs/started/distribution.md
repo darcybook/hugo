@@ -1,5 +1,5 @@
 +++
-title = "Distributing to App Stores"
+title = "分发到应用商店"
 description = "Distributing to App Stores"
 tags = [
     "go",
@@ -15,91 +15,72 @@ categories = [
 menu = "main"
 weight=90
 +++
+# 分发
+---
+## 分发到应用商店
+---
 
-Packaging a graphical app as described in the [Packaging](/started/packaging)
-page provides a file or bundle that could be directly shared or distributed.
-However signing and uploading to app stores and market places is an additional
-step that requires platform-specific configuration, which we will cover in this
-page.
+按照打包页面中所述打包图形应用程序可提供可直接共享或分发的文件或捆绑包。但是，签名并上传到应用商店和市场是需要特定于平台的配置的额外步骤，我们将在此页面中介绍。
 
-In each of these steps we will use a new tool that is part of the fyne command
-line utilities. The `fyne release` step handles the signing and preparation
-for each store, but the parameters vary per-platform, which we see below.
-
+在每个步骤中，我们将使用一个新工具，该工具是 `fyne` 命令行实用程序的一部分。该`fyne release`步骤处理每个商店的签名和准备工作，但参数因平台而异，如下所示。
 ### macOS App Store (since fyne 1.4.2)
 
-Prerequisites:
+实现准备:
 
-* Apple mac running macOS and Xcode
-* Apple Developer account
-* Mac App Store application certificate
-* Mac App Store installer certificate
-* Apple Transporter app from App Store
+* 运行 macOS 和 Xcode的Apple mac 
+* Apple 开发账号
+* Mac App Store 应用证书
+* Mac App Store 安装证书
+* App Store的Apple Transporter 程序
 
-1. 
-Set up your app / version ready for a build to be uploaded at
-[AppStore Connect](https://appstoreconnect.apple.com).
+1. 设置您的应用程序/版本，以便为在[AppStore Connect](https://appstoreconnect.apple.com)上传构建版本做好准备。
 
-2.
-Bundle the completed app for release:
+2. 捆绑完成的应用程序以进行发布：
 
 ```
 $ fyne release -appID com.example.myapp -appVersion 1.0 -appBuild 1 -category games
 ```
 
-3.
-Drag the `.pkg` onto Transporter and tap "Deliver".
+3. 将拖动到`Deliver`上，然后点击`.pkg`。
 
-4.
-Go to back to the AppStore Connect website, choose your build for the release and submit for review.
+4. 返回 AppStore Connect 网站，选择您的版本以供发布，然后提交以供审核。
 
 ### Google Play Store (Android)
 
-Prerequisites:
+实现准备:
 
-* Google Play Console account
-* distribution keystore (creation instructions in
-[android docs](https://developer.android.com/studio/publish/app-signing))
+* Google Play Console 账号
+* 分发密钥库 (创建说明参考[android docs](https://developer.android.com/studio/publish/app-signing))
 
-1.
-Set up your app / version ready for build to be uploaded at
-[Google Play Console](https://play.google.com/apps/publish). Turn off "Play app signing" option as we manage it ourselves.
+1. 设置您的应用/版本，准备在[Google Play Console](https://play.google.com/apps/publish)管理中心上传构建版本。关闭`Play app signing`选项，因为我们自己管理它。
 
-2.
-Bundle the completed app for release:
+2. 捆绑完成的应用程序以进行发布：
 
 ```
 $ fyne release -os android -appID com.example.myapp -appVersion 1.0 -appBuild 1
 ```
 
-3.
-Drag the `.apk` file into the build drop zone on the app version page in Play Console
+1. 将`.apk`文件拖到 Play 管理中心应用版本页面上的构建放置区中。
 
-4.
-Start rollout of new version.
+2. 开始推出新版本。
 
 ### iOS App Store (since fyne 1.4.1)
 
-Prerequisites:
+实现准备:
 
-* Apple mac running macOS and Xcode
-* Apple Developer account
-* iOS App Store distribution certificate
-* Apple Transporter app from App Store
+* 运行 macOS 和 Xcode 的 Apple Mac
+* Apple Developer 账号
+* iOS App Store 分发证书
+* App Store 的 Apple Transporter 应用
 
-1.
-Set up your app / version ready for a build to be uploaded at
-[AppStore Connect](https://appstoreconnect.apple.com).
+1. 设置您的应用/版本，以便为要上传到[AppStore Connect](https://appstoreconnect.apple.com)的构建版本做好准备。
 
-2.
-Bundle the completed app for release:
+2. 捆绑完成的应用程序以进行发布：
 
 ```
 $ fyne release -os ios -appID com.example.myapp -appVersion 1.0 -appBuild 1
 ```
 
-3.
-Drag the `.ipa` onto Transporter and tap "Deliver".
+1. 将`.ipa`拖动到`Deliver`上，然后点击“交付”。
 
-4.
-Go to back to the AppStore Connect website, choose your build for the release and submit for review.
+2. 返回 AppStore Connect 网站，选择您的版本以供发布，然后提交以供审核。

@@ -1,5 +1,5 @@
 +++
-title = "Packaging for Desktop"
+title = "打包"
 description = "Packaging for Desktop"
 tags = [
     "go",
@@ -16,51 +16,44 @@ categories = [
 menu = "main"
 weight=70
 +++
+# 打包
+---
+## 桌面程序打包
+--- 
+
+打包图形应用程序以进行分发可能很复杂。图形应用程序通常具有与其关联的图标和元数据，以及与每个环境集成所需的特定格式。Windows可执行文件需要嵌入式图标，macOS应用程序是捆绑包，Linux应该安装各种元数据文件。真是麻烦！
+
+值得庆幸的是，`fyne`应用程序具有可以自动处理此情况的`package`命令。只需指定目标操作系统和任何所需的元数据（如 icon）即可生成相应的程序包。图标转换将自动完成.icns或.ico因此只需提供.png文件 :) 即可。您所需要的只是已经为目标平台构建了应用程序...
 
 
-
-Packaging a graphical app for distribution can be complex.
-Graphical applications typically have icons and metadata associated
-with them as well as specific formats required to integrate with each
-environment. Windows executables need embedded icons, macOS apps are bundles and
-with Linux there are various metadata files that should get installed. What a hassle!
-
-Thankfully the "fyne" app has a "package" command that can handle this automatically. Just specifying the target OS and any required metadata (such as icon) will generate the appropriate package. The icon conversion will be done automatically for .icns or .ico so just provide a .png file :). All you need is to have the application already built for the target platform...
-
-```
+```sh
 go install fyne.io/fyne/v2/cmd/fyne@latest
 fyne package -os darwin -icon myapp.png
 ```
-If you're using an older version of Go (<1.16), you should install fyne using `go get`
 
-```
+如果您使用的是较旧版本的 Go （<1.16），则应使用`go get`命令安装
+
+```sh
 go get fyne.io/fyne/v2/cmd/fyne
 fyne package -os darwin -icon myapp.png
 ```
 
-Will create myapp.app, a complete bundle structure for distribution to macOS users. You could then build the linux and Windows versions too...
+将创建 myapp.app，这是一个完整的捆绑包结构，用于分发给macOS用户。然后，您也可以构建Linux和Windows版本...
 
 ```
 fyne package -os linux -icon myapp.png
 fyne package -os windows -icon myapp.png
 ```
+这些命令将创建：
 
-These commands will create:
+ * myapp.tar.gz包含一个从 usr/local/ 开始的文件夹结构，Linux 用户可以扩展到其系统的根目录。
+ * myapp.exe（在第二次生成之后，这是 windows 包所必需的）将嵌入图标和应用元数据。
 
-  * myapp.tar.gz that contains a folder structure starting at usr/local/ that a Linux user could expand to the root of their system.
-  * myapp.exe (after the second build, which is required for a windows package) will have the icon and app metadata embedded.
-
-If you just want to install the desktop app on your computer then you can make
-use of the helpful install subcommand. For example to install your current
-application system wide you could simply execute the following:
+如果您只想在自己的计算机上安装桌面应用程序，则可以使用有用的安装子命令。例如，要在系统范围内安装当前应用程序，您只需执行以下操作：
 
 ```
 fyne install -icon myapp.png
 ```
+所有这些命令还支持`Icon.png`的默认图标文件，以便您可以避免为每次执行键入参数。从`Fyne 2.1`开始，还有一个[元数据文件](/docs/started/metadata)文件，您可以在其中为项目设置默认选项。
 
-All of these commands also support a default icon file of `Icon.png` so that you
-can avoid typing the parameter for each execution. Since Fyne 2.1 there is also a
-[metadata file](/started/metadata) where you can set default options for your project.
-
-Of course you can still run your applications using the standard Go
-tools if you prefer.
+当然，如果您愿意，您仍然可以使用标准的Go工具运行应用程序。

@@ -18,12 +18,12 @@ weight=20
 +++
 
 
-## Create your first Fyne app
+# 开始你的第一个app
 ---
 
-Having completed the steps in the [getting started](/started/) document you're ready to build your first app. To illustrate the process we will build a simple hello world application.
+完成[入门](/docs/started/introduction/)文档中的步骤后，即可开始构建您的第一个应用。为了说明这个过程，我们将构建一个简单的 hello world 应用程序。
 
-A simple app starts by creating an app instance with app.New() and then opening a window with app.NewWindow(). Then a widget tree is defined that is set as the main content with SetContent() on a window. The app UI is then shown by calling ShowAndRun() on the window.
+用`app.New()`建立一个简单的app，然后用`app.NewWindow()`打开一个窗口。用`SetContent()`将控件数添加到窗口上。最后利用`ShowAndRun()`运行你的`app UI`就会显示了
 
 
 ```go
@@ -42,20 +42,17 @@ func main() {
 	w.ShowAndRun()
 }
 ```
+`ShowAndRun()`可以使用该命令生成上述代码，然后通过运行`go build .`该命令或双击图标来执行该代码。您也可以绕过编译步骤，直接使用`go run .`运行代码。
 
-
-The code above can be built using the command `go build .` and then executed either by running the `hello` command or by double clicking the icon. You could also bypass the compiling step and just run the code directly using `go run .`.
-
-Either approach will show a window that looks just like this:
+这两种方法都会显示一个窗口，如下所示：
 
 ![](/mk_img/helloword-26-847-1.png)  
 
 
-If you prefer a light theme then just set the environment variable `FYNE_THEME=light` and you'll get:
+如果您更喜欢浅色主题，那么只需设置环境变量`FYNE_THEME=light`，您将获得：
 
 ![FYNE_THEME=light](/mk_img/helloword-28-876-4.png)  
 
+这就是入门的全部内容。要了解更多信息，您可以阅读完整的[API文档](https://darcybook.github.io/docs/api/)。
 
-That's all there is to getting started. To learn more you can read the full
-[API documentation](http://developer.fyne.io/api/).
 
