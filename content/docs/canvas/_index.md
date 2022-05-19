@@ -1,8 +1,6 @@
 ---
 bookCollapseSection: true
-title: Drawing and Animation
+title: 绘制和动画
 weight: 30
 ---
 
-
-{{<section>}}
