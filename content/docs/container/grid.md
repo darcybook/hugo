@@ -9,15 +9,10 @@ redirect_from:
 
 网格布局以网格模式对容器的元素进行布局，网格模式具有固定数量的列。项将填充一行，直到达到列数，在此之后将创建一个新行。垂直空间将在每行对象之间平均分配。
 
+用`layout.NewGridLayout(cols)`建立网格布局，你希望每行的列数。
+这将作为`container.New(...)`的第一个参数。
 
-
-You create a grid layout using `layout.NewGridLayout(cols)` where cols
-is the number of items (columns) you wish to have in each row. This
-layout is then passed as the first parameter to
-`container.New(...)`.
-
-If you resize the container then each of the cells will resize equally
-to share the available space.
+如果调整容器的尺寸，则每个单元格都将平均调整大小共享空间。
 
 ```go
 package main

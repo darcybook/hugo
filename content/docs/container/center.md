@@ -1,13 +1,13 @@
 ---
-title: Center
+title: 中央布局
 weight: 60
 redirect_from:
 - /tour/layout/centerlayout
 ---
-
-`layout.CenterLayout` organises all items in its container to be
-centered in the available space. The objects will be drawn in the order
-they are passed to the container, with the last being drawn top-most.
+# 中央布局
+---
+`layout.CenterLayout`中央布局排列所有项目到空间中心。
+对象按照传递的顺序绘制，最后的排列在最上面。
 
 ```go
 package main
@@ -36,6 +36,4 @@ func main() {
 }
 ```
 
-The center layout causes all items to stay at their minimum size, if
-you wish to expand items to fill the space then see
-[`layout.MaxLayout`](max).
+中央布局是所有元素保持最小大小，如果希望展开项目填充，可参阅[`layout.MaxLayout`](max).

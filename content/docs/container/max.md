@@ -1,18 +1,16 @@
 ---
-title: Max
+title: 最大布局
 weight: 70
 redirect_from:
 - /tour/layout/maxlayout
 ---
+# 最大布局
+---
+`layout.MaxLayout`最大布局时最简单的布局，将所有元素设置和容器一样大小。这在一般容器中没啥用，但在编写小部件的时候很合适。
 
-The `layout.MaxLayout` is the simplest layout, it sets all items in
-the container to be the same size as the container. This is not
-often useful in general containers but can be suitable when composing
-widgets.
+最大布局会将容器扩展为至少元素的最小尺寸。
+按照传递的顺序绘制，最后一个对象在最上面。
 
-The max layout will expand the container to be at least the size of the
-largest item's minimum size. The objects will be drawn in the order
-the are passed to the container, with the last being drawn top-most.
 
 ```go
 package main

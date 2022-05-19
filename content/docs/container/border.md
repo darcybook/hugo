@@ -4,20 +4,16 @@ weight: 40
 redirect_from:
 - /tour/layout/borderlayout
 ---
+# Border 
 
-The border layout is possibly the most widely used to construct user
-interfaces as it allows the positioning of items around a central element
-which will expand to fill the space. To create a border layout you need
-to pass the `fyne.CanvasObject`s that should be positioned in a border
-position to the layout (as well as the container as usual). This
-syntax is a little different to the other layouts but is basically just
-`layout.NewBorderLayout(top, bottom, left, right)` as illustrated in
-the example to the right.
+Border 框布局可能是在构建用户界面时最长使用的方式，它可以将项目定位在中央元素周围，中央元素会扩展填充空间。
+使用`fyne.CanvasObject`建立框布局，它需要指定边框位置（就像往常一样）。
 
-Any items passed to the container that do not appear in specific border
-locations will be positioned to the central area and will expand to
-fill the space available. You can also pass `nil` to border parameters
-that you wish to leave empty.
+语法和其他布局有些不一样，但是基本`layout.NewBorderLayout(top, bottom, left, right)`和下面示例一下。
+
+传递到布局且没有指定位置的项目都会排列到中心区域，并自动填充。
+还可以将`nil`传给布局，让位置为空。
+
 
 ```go
 package main
@@ -45,7 +41,6 @@ func main() {
 }
 ```
 
-Note that all items in the center will expand to fill the space (as if
-they were in a [`layout.MaxLayout`](/container/max) container). To manage
-the area yourself you can create a new `fyne.Container` (using `container.New()`) and use any
-layout you wish.
+
+请注意，中心中的所有项目都将展开以填充空间（就像它们在布局中一样[`layout.MaxLayout`](/docs/container/max)）。要自己管理该区域，您可以创建一个新的`fyne.Container`（使用`container.New()`）并使用您想要的任何布局。
+

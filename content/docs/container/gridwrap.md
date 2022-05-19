@@ -1,25 +1,19 @@
 ---
-title: Grid Wrap
+title: 网格环绕
 weight: 30
 redirect_from:
 - /tour/layout/gridwraplayout
 ---
+# Grid Wrap
+---
 
-Like the previous grid layout, the grid wrap layout creates an arrangement
-of elements in a grid pattern. However this grid does not have a set
-number of columns, instead it uses a fixed size for each cell and
-then flows the content to as many rows as is needed to display the items.
+与网格布局一样，网格环绕布局在表格布局中排列元素。
+但是网格环绕没有固定列数，用固定大小确认每个单元格的宽，然后在构建的时候指定所需行数。
 
-You create a grid wrap layout using `layout.NewGridWrapLayout(size)`
-where size specifies the size to apply to all child elements.
-This layout is then passed as the first parameter to
-`container.New(...)`.
-The number of columns and rows will be calculated based on the current
-size of the container.
+用`layout.NewGridWrapLayout(size)`命令建立网格环绕布局，并指定所有元素的尺寸，并作为`container.New(...)`的第一个参数传递。
+行列数会根据当前的容器自动进行计算。
 
-Initially a grid wrap layout will have a single column, if you resize it
-(as illustrated in the code comment to the right) it will rearrange
-the child elements to fill the space.
+一开始，网格环绕布局只有一列，如果调整尺寸（如下面示例），子元素将自动排列。
 
 ```go
 package main

@@ -1,20 +1,15 @@
 ---
-title: Form
+title: 表单布局
 weight: 50
 redirect_from:
 - /tour/layout/formlayout
 ---
+# 表单布局
+---
+`layout.FormLayout`表单布局类似一个两列的[表格布局](/docs/container/grid)，调整成一个适合表单的样式。
+每个元素的高是每两者最小高度中最高的，左侧的宽度是第一列中每项的最小宽度中最大的，第二列的元素展开自动填充。
 
-The `layout.FormLayout` is like a 2 column [grid layout](/container/grid)
-but tweaked to lay out forms in an application.
-The height of each item will be the larger of the two minimum heights
-in each row. The width of the left item will be the largest minimum
-width of all items in the first column whilst the second item in each
-row will expand to fill the space.
-
-This layout is more typically used within the `widget.Form` (for validation, submit and cancel buttons, etc) but it can
-also be used directly with `layout.NewFormLayout()` passed to the first
-parameter of `container.New(...)`.
+这个布局通常用在`widget.Form`部件，但也可以利用`layout.NewFormLayout()`传给`container.New(...)`。
 
 ```go
 package main
