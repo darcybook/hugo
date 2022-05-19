@@ -38,7 +38,7 @@ enableGitInfo = true
 
 [menu]
 [[menu.after]]
-  name = "--------------------------------------------------"
+  name = "----------------------------------"
   weight = 1
 [[menu.after]]
   name = "Github"
