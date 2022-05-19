@@ -1,5 +1,5 @@
 +++
-title = "Adding Shortcuts to an App"
+title = "快捷键"
 description = "Adding Shortcuts to an App"
 tags = [
     "go",
@@ -16,18 +16,25 @@ menu = "main"
 weight=60
 +++
 
+# 快捷键
+---
+## 在应用上增加快捷键
+---
 
-Shortcuts are common tasks that can be triggered by keyboard combinations or context menus. Shortcuts, much like keyboard events, can be attached to a focused element or registered on the `Canvas` to always be available in a `Window`.
+快捷键是利用组合键触发的常见任务。
+快捷键和键盘事件非常相似，可以附加到一个触发的元素或者注册到`Canvas`使它在`Window`一直有效。
 
-## Registering with a Canvas
+## 通过`Canvas`注册
 
-There are many standard shortcuts defined (such as `fyne.ShortcutCopy`) which are connected to standard keyboard shortcuts and right-click menus. The first step to adding a new `Shortcut` is to define the shortcut. For most uses this will be a keyboard triggered shortcut, which is a desktop extension. To do this we use `desktop.CustomShortcut`, for example to use the Tab key and Control modifier you might do the following:
+有需要标准的快捷键和鼠标右键菜单已经定义了（例如`fyne.ShortcutCopy`）。
+添加`Shortcut`的第一步就是定义一个shortcut。大多数用途是作为桌面扩展的快捷键。
+我们用`desktop.CustomShortcut`去实现，比如用Tab键和Control你可以参照下面这样做：
 
 ```go
 	ctrlTab := desktop.CustomShortcut{KeyName: fyne.KeyTab, Modifier: desktop.ControlModifier}
 ```
-
-Notice that this shortcut can be re-used so you could attach it to menus or other items as well. For this example we want it to be always available, so we register it with our window's `Canvas` as follows:
+要注意的是快捷键是可以重复使用的，这样你就可以将它增加到其它元素或菜单上。
+比如说我们想要它一直有效，我们可以这样在`Canvas`上注册。
 
 ```go
 	ctrlTab := desktop.CustomShortcut{KeyName: fyne.KeyTab, Modifier: desktop.ControlModifier}
@@ -35,12 +42,14 @@ Notice that this shortcut can be re-used so you could attach it to menus or othe
 		log.Println("We tapped Ctrl+Tab")
 	})
 ```
+如你所见，这种方式注册快捷键有两个步骤 -- 快捷键定义和一个回调函数。
+如果用户用户按下了快捷键，函数就会调用，并输出打印内容。
 
-As you can see there are two parts to registering a shortcut in this way - passing the shortcut definition and also a callback function. If the user types the keyboard shortcut then the function will be called and the output printed.
+## 输入框增加快捷键
 
-## Adding shortcuts to an Entry
-
-It can also be helpful to have a shortcut apply only when the current item is focused. This approach can be used for any focusable widget, and is managed by extending that widget and adding a `TypedShortcut` handler. This is much like adding key handlers, except the value passed in will be a `fyne.Shortcut`.
+只有当前元素获得焦点时才触发快捷键也是很有用的。
+任何可以聚焦的空间都可以使用，添加一个`TypedShortcut`扩展来管理快捷键。
+和增加一个键盘时间很像，除了它的参数是一个`fyne.Shortcut`。
 
 ```go
 type myEntry struct {
@@ -56,6 +65,6 @@ func (m *myEntry) TypedShortcut(s fyne.Shortcut) {
 	log.Println("Shortcut typed:", s)
 }
 ```
-
-From the excerpt above you can see how a `TypedShortcut` handler might be implemented. Inside this function you should check whether the shortcut is of the custom type used earlier. If the shortcut is a standard one it's a good idea to call the original shortcut handler (if the widget had one).
-With those checks done you can compare the shortcut with the various types you are handling (if there are multiple).
+从上面的代码中，你可以看到`TypedShortcut` handler怎是如何调用的。
+在这个函数中，你需要检查快捷键是否是之前使用的自定义类型。如果快捷键是标准的，最好调用原始的快捷键处理程序（如果有的化）。
+检查完成后，你可以对比下你处理的不同类型的快捷键。

@@ -1,5 +1,5 @@
 +++
-title = "Layout List"
+title = "布局清单"
 description = "Layout List"
 tags = [
     "go",
@@ -16,100 +16,86 @@ menu = "main"
 weight=40
 +++
 
-## Standard Layouts
+# 布局清单
+---
+## 标准布局
 
 ---
 
 ### Horizontal Box (HBox)
 
-Horizontal Box arranges items in a horizontal row.
-Every element will have the same height (the height of the tallest item in the container)
-and objects will be left-aligned at their minimum width.
+HBox在水平行排列子元素。
+每个子元素有相同的高（容器中最高的元素）并保持最小宽度左对齐。
 
-![图 29](/mk_img/layouts-32-393-4.png)
+![HBox](/mk_img/layouts-32-393-4.png)
 
 ### Vertical Box (VBox)
 
-Vertical Box arranges items in a vertical column.
-Every element will have the same width (the width of the widest item in the container)
-and objects will be top-aligned at their minimum height.
+VBox在垂直列排列子元素。
+每个子元素有相同的宽（容器中最宽的元素）并保持最小高度，顶对齐。
 
-![图 30](/mk_img/layouts-33-795-6.png)  
+![VBox](/mk_img/layouts-33-795-6.png)  
 
 ### Center
 
-Center layout positions all container elements in the center of the container.
-Every object will be set to it's minimum size.
+居中布局将所有元素放在容器中心。
+每个对象设置为最小尺寸。
 
-![图 31](/mk_img/layouts-33-256-2.png)  
+![Center](/mk_img/layouts-33-256-2.png)  
 
 
 ### Form
 
-Form layout arranges items in pairs where the first column is at minimum width.
-This is normally useful for labelling elements in a form, where the label is in the first
-column and the item it describes is in the second.
-You should always add an even number of elements to a form layout.
+表单布局按对进行布局，第一列宽度最小。
+对在表单中标签很有用，标签位于第一列，其它对象位于第二列。
+此布局需要每次添加偶数个元素。
 
-![图 32](/mk_img/layouts-33-410-6.png)  
+![Form](/mk_img/layouts-33-410-6.png)  
 
 
 ### Grid
 
-Grid layout arranges items equally in the available space.
-A number of columns is specified, with objects being positioned horizontally
-until the number of columns is reached at which point a new row is started.
-All objects have the same size, that is width divided by column total and
-the height will be total height divided by the number of rows required. Minus padding.
+网格布局在可用空间内平局排列元素。
+元素水平排放，直到达到指定的列数后自动换行。
+所有对象都有相同的尺寸，宽度为宽/列数，高度为高/所需行数。上述计算需要减去padding。
 
-![图 33](/mk_img/layouts-33-423-2.png)  
-
+![Grid](/mk_img/layouts-33-423-2.png)  
 
 ### GridWrap
 
-GridWrap layout arranges all items to flow along a row, wrapping to a new row if there is insufficient space.
-All objects will be set to the same size, which is the size passed to the layout.
-This layout may not respect item MinSize to manage this uniform layout.
-Often used in file managers or image thumbnail lists.
+网格环绕布局横向排列元素，如果空间不足，就换行。
+所有对象都将设置为相同尺寸。
+此布局可能不遵循`MinSize`来管理此统一布局。通常用于文件管理器或图像缩略图列表。
 
-![图 34](/mk_img/layouts-33-779-3.png)  
-
+![GridWrap](/mk_img/layouts-33-779-3.png)  
 
 ### Border
 
-Border layout supports positioning of items at the outside of available space.
-The border is passed pointers to the objects for (top, left, bottom, right).
-All items in the container that are not positioned on a border will fill the remaining space.
+边框布局支持将元素定位在可用空间外部。
 
-![图 35](/mk_img/layouts-34-441-8.png)  
+![Border](/mk_img/layouts-34-441-8.png)  
 
 
 ### Max
 
-Max layout positions all container elements to fill the available space.
-The objects will all be full-sized and drawn in the order they were added
-to the container (last-most is on top).
+最大布局将所有容器元素填充可用空间。
+所有对象都是全尺寸的，并按照添加顺序绘制（最后一个在顶部）。 
 
-![图 36](/mk_img/layouts-34-736-5.png)  
+![Max](/mk_img/layouts-34-736-5.png)  
 
 
 ### Padded
 
-Padded layout positions all container elements to fill the available space
-but with a small padding around the outside. The size of the padding is theme
-specific. The objects will all be drawn in the order they were added
-to the container (last-most is on top).
+填充布局定位所有容器元素类似最大布局，但在外部哟一个padding填充。
 
-![图 37](/mk_img/layouts-34-766-7.png)  
+![Padded](/mk_img/layouts-34-766-7.png)  
 
 
 ## Combining Layouts
 
-It is possible to build up more complex application structures by using multiple layouts.
-Multiple containers that each have their own layout can be nested to create complete user 
-interface arrangements using only the standard layouts listed above.
-For example a horizontal box for a header, a vertical box for a left side file panel and a grid 
-wrap layout in the content area - all inside a container using a border layout can build the result illustrated below.
+通过使用不同布局可以构建更为复杂的布局结构。
+每个容器可以拥有不同的布局，且每一个可以嵌套不同的标准布局。
+例如，一个水平HBox作为header，一个垂直VBox作为左侧边栏面板，一个网格布局作为内容域 -- 所有容器都使用边框布局。如下图所示的结果：
 
-![图 38](/mk_img/layouts-34-368-8.png)  
+![Combining Layouts](/mk_img/layouts-34-368-8.png)  
 

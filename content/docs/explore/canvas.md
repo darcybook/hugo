@@ -1,5 +1,5 @@
 +++
-title = "Canvas and CanvasObject"
+title = "Canvas 和 CanvasObject"
 description = "Canvas and CanvasObject"
 tags = [
     "go",
@@ -16,22 +16,15 @@ menu = "main"
 weight=10
 +++
 
+# Canvas 和 CanvasObject
+---
+在 Fyne 中，`Canvas`是绘制应用程序的区域。每个窗口都有一个画布，您可以使用`Window.Canvas()`进行访问，但通常您会在`Window`上找到避免直接访问画布的功能。
 
-In Fyne a `Canvas` is the area which an application is drawn within.
-Each window has a canvas which you can access with `Window.Canvas()`
-but usually you will find functions on `Window` that avoid accessing
-the canvas.
+在Fyne中可以绘制的所有内容都是一种`CanvasObject`。
+下面这个示例通过在canvas设置原始图形元素的却别。
 
-Everything that can be drawn in Fyne is a type of `CanvasObject`.
-The example here opens a new window and then shows different types of
-primitive graphical element by setting the content of the window canvas.
-There are many ways that each type of object can be customised as
-shown with the text and circle examples.
-
-As well as changing the content shown using `Canvas.SetContent()` it is
-possible to change the content that is currently visible. If, for example, you
-change the `FillColour` of a rectangle you can request a refresh of this
-existing component using `rect.Refresh()`.
+可以通过多种方式自定义每种类型的对象，如文本和圆圈示例所示。
+就像`Canvas.SetContent()`改变content显示，它也会改变当前看视图。你可以将`FillColour`改为rectangle，你可以使用`rect.Refresh()`请求刷新。 
 
 ```go
 package main
@@ -65,8 +58,7 @@ func main() {
 	myWindow.ShowAndRun()
 }
 ```
-
-We can draw many different drawing elements in the same way, such as circle and text.
+我们可以用相同的方式绘制许多不同的绘图元素，例如圆形和文本。
 
 ```go
 func setContentToText(c fyne.Canvas) {
@@ -87,13 +79,10 @@ func setContentToCircle(c fyne.Canvas) {
 
 ## Widget
 
-A `fyne.Widget` is a special type of canvas object that has interactive elements
-associated with it. In widgets the logic is separate from the way that
-it looks (also called the `WidgetRenderer`).
+`fyne.Widget`是一种特殊类型的画布对象，它具有相关的交互式元素。在widgets中，逻辑与它的外观（也称为`WidgetRenderer`）是分开的。
 
-Widgets are also types of `CanvasObject` and so we can set the
-content of our window to a single widget. See how we create a new
-`widget.Entry` and set it as the content of the window in this example.
+小部件也是`CanvasObject`的类型，因此我们可以将窗口的内容设置为单个小部件。在此示例中，请参阅我们如何创建一个新的窗口并`widget.Entry`将其设置为窗口的内容。
+
 
 ```go
 package main

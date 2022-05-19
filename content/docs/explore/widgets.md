@@ -1,5 +1,5 @@
 +++
-title = "Widget List"
+title = "组件清单"
 description = "Widget List"
 tags = [
     "go",
@@ -15,22 +15,26 @@ categories = [
 menu = "main"
 weight=30
 +++
+# 组件清单
+---
 
 
-## Standard Widgets (in `widget` package)
+## 标准组件 (`widget`包中)
 
 ---
 
 ### Accordion
 
-Accordion displays a list of AccordionItems. Each item is represented by a button that reveals a detailed view when tapped.
+可折叠控件（Accordion）显示项目列表，每个项目都由一个按钮表示，点击该按钮时会显示详细视图。
+
 
 ![Accordion](/mk_img/widgets-55-112-2.png)  
 
 
 ### Button
 
-Button widget has a text label and icon, both are optional.
+按钮空间由有一个文本和图标，两者都是可选的。
+
 
 ![Button](/mk_img/widgets-56-921-3.png)  
 
@@ -38,167 +42,163 @@ Button widget has a text label and icon, both are optional.
 
 ### Card
 
-Card widget groups elements with a header and subheader, all are optional.
+卡片控件是标题副标题的合计，都是可选的。
 
 ![Card](/mk_img/widgets-56-817-8.png)  
 
 
 ### Check
 
-Check widget has a text label and a checked (or unchecked) icon.
+单选框 有一个文本和单选（未选中）按钮。
 
 ![Check](/mk_img/widgets-56-397-4.png)  
 
 
 ### Entry
 
-Entry widget allows simple text to be input when focused.
+输入框空间触发时允许录入简单文本。
 
 ![Entry ](/mk_img/widgets-58-401-7.png)  
 
-
-PasswordEntry widget hides text input and adds a button to display the text.
+密码输入框隐藏输入内容，还有一个控制它显示的按钮。
 
 ![PasswordEntry](/mk_img/widgets-58-977-6.png)  
  
 ### FileIcon
 
-FileIcon provides helpful standard icons for various types of file.
-It displays the type of file as an indicator icon and shows the extension of the file type.
+文件图标未不同文件提供标准图标。
+将文件显示未不同的图标，并显示文件的扩展名。
  
 ![FileIcon](/mk_img/widgets-59-910-6.png)  
 
 ### Form
 
-Form widget is two column grid where each row has a label and a widget (usually an input). The last row of the grid will contain the appropriate form control buttons if any should be shown.
+表单是两列网格，其中每行都有一个标签和一个小部件（通常是输入）。网格的最后一行将包含相应的窗体控件按钮（如果有）。
 
 ![Form](/mk_img/widgets-00-304-7.png)  
 
 
 ### Hyperlink
 
-Hyperlink widget is a text component with appropriate padding and layout. When clicked, the URL opens in your default web browser.
+超链接构件是具有适当填充和布局的文本组件。单击后，URL 将在默认 Web 浏览器中打开。
 
 ![Hyperlink](/mk_img/widgets-00-544-7.png)  
 
 
 ### Icon
 
-Icon widget is a basic image component that load's its resource to match the theme.
+图标小部件是一个基本的图像组件，可加载其资源以匹配主题。
 
 ![Icon](/mk_img/widgets-01-413-1.png)  
 
 ### Label
 
-Label widget is a label component with appropriate padding and layout.
+标签是具有适当填充和布局的标签组件。
 
 ![Label](/mk_img/widgets-01-051-8.png)  
-
  
 ### Progress bar
 
-ProgressBar widget creates a horizontal panel that indicates progress.
+进度条提供一个横条，显示进度。
 
 ![Progress bar](/mk_img/widgets-01-814-9.png)  
 
-
-ProgressBarInfinite widget creates a horizontal panel that indicates waiting indefinitely An infinite progress bar loops 0% -> 100% repeatedly until Stop() is called.
+无限进度条，提供一个横条，一直循环0%-100%，知道条用stop()。
 
 ![Progress bar](/mk_img/widgets-02-220-8.png)  
 
 
 ### RadioGroup
 
-RadioGroup widget has a list of text labels and radio check icons next to each.
+多选框控件有一个可选的标签列表，每个文本旁都有一个多选图标。
 
-![图 16](/mk_img/widgets-02-469-5.png)  
+![RadioGroup](/mk_img/widgets-02-469-5.png)  
 
 
 ### Select
 
-Select widget has a list of options, with the current one shown, and triggers an event function when clicked.
+下拉框有一个可选清单，显示当前选中的，单击出发。
 
-![图 17](/mk_img/widgets-02-873-8.png)  
+![Select](/mk_img/widgets-02-873-8.png)  
 
 
 ### SelectEntry
 
-Select entry widget adds an editable component to the select widget.
-Users can select an option or enter their own value.
+可选输入框，用户可以输入或者选择一个选项。
 
-![图 18](/mk_img/widgets-02-274-0.png)  
+![SelectEntry](/mk_img/widgets-02-274-0.png)  
 
 
 ### Separator
 
-Separator widget shows a dividing line between other elements.
+分隔符，将不同组件分割开。
 
-![图 19](/mk_img/widgets-03-927-0.png)
+![Separator](/mk_img/widgets-03-927-0.png)
 
 ### Slider
 
-Slider if a widget that can slide between two fixed values.
+滑块可在固定的值之前滑动选择。
 
-![图 20](/mk_img/widgets-03-974-1.png)  
+![Slider](/mk_img/widgets-03-974-1.png)  
 
 ### TextGrid
 
-TextGrid is a monospaced grid of characters. This is designed to be used by a text editor, code preview or terminal emulator.
+文本域是一个等宽的文字输入框，被设计用来文本输入，代码预览或者终端仿真。
 
-![图 21](/mk_img/widgets-03-299-2.png) 
+![TextGrid](/mk_img/widgets-03-299-2.png) 
 
 ### Toolbar
 
-Toolbar widget creates a horizontal list of tool buttons.
+工具栏可创建工具按钮的水平列表。
 
-![图 22](/mk_img/widgets-04-250-9.png) 
+![Toolbar](/mk_img/widgets-04-250-9.png) 
 
 
-## Collection Widgets (in `widget` package)
+## Collection Widgets (在`widget`包中)
 
-Collection widgets provide advanced caching functionality to provide high performance rendering of massive data. This does lead to a more complex constructor,
-but is a good balance for the outcome it enables.
-Each of these widgets uses a series of callbacks, the minimum set is defined by their constructor function, which includes the data size, the creation of template items that can be re-used and finally the function that applies data to a widget as it is about to be added to the display.
+**集合小组件**提供高级缓存功能，以提供海量数据的高性能呈现。
+这确实会需要更复杂的构造函数，但对于它所展示的结果来说是一个很好的平衡。
+这些小部件中的每一个都使用一系列回调函数，最小集由其构造函数定义，其中包括数据大小，可以重用的模板项的创建，以及最后将数据应用于小部件的函数，因为它即将被添加到显示中。
 
 ### List
 
-List provides a high performance vertical scroll of many sub-items.
+列表提供了大量子元素的高性能垂直方向滚动。
 
-![图 23](/mk_img/widgets-04-253-5.png)  
+![List](/mk_img/widgets-04-253-5.png)  
 
 
 ### Table
 
-Table provides a high performance scrolled two dimensional display of many sub-items.
-![图 24](/mk_img/widgets-04-887-9.png)  
+表格提供大量数据二维方向高性能展示。
+
+![Table](/mk_img/widgets-04-887-9.png)  
  
 
 ### Tree
 
-Tree provides a high performance vertical scroll of items that can be expanded to reveal child elements..
+树控件提供了子元素垂直滚动，并且点击可以展开子元素。
 
-![图 25](/mk_img/widgets-05-657-0.png)
+![Tree](/mk_img/widgets-05-657-0.png)
 
 
-## Container Widgets (in `container` package)
+## Container Widgets (在`container`中)
 
-Container widgets are like regular containers but they provide some additional functionality.
+容器小部件类似于常规容器，但它们另外提供了一些附加功能。
 
 ### AppTabs
 
-AppTabs widget allows switching visible content from a list of TabItems. Each item is represented by a button at the top of the widget.
+应用选项卡，允许切换显示内容。每个项目由顶部的按钮表示。
 
-![图 26](/mk_img/widgets-05-001-9.png)   
+![AppTabs](/mk_img/widgets-05-001-9.png)   
 
 ### Scroll
 
-ScrollContainer defines a container that is smaller than the Content.
+ScrollContainer 滚动条实现了一个比Content小的container。
 
-![图 27](/mk_img/widgets-05-866-9.png)  
+![Scroll](/mk_img/widgets-05-866-9.png)  
 
 
 ### Split
-
-SplitContainer defines a container whose size is split between two children.
+SplitContainer 拆分容器实现了内部子元素大小拆分的container。
 
 ![图 28](/mk_img/widgets-05-910-5.png) 

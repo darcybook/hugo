@@ -1,5 +1,5 @@
 +++
-title = "Container and Layouts"
+title = "容器和布局"
 description = "Container and Layouts"
 tags = [
     "go",
@@ -15,16 +15,13 @@ categories = [
 menu = "main"
 weight=20
 +++
+# 容器和布局
+---
 
-In the previous example we saw how to set a `CanvasObject` to the
-content of a `Canvas`, but it is not very useful to only show
-one visual element. To show more than one item we use the `Container` type.
+在前面的示例中，我们看到了如何将`CanvasObject`设置为`Canvas`的内容，但通常我们不仅需要显示一个视图。要显示多个项目，我们使用类型`Container`（容器）。
 
-As the `fyne.Container` also is a `fyne.CanvasObject`, we can set it to be
-the content of a `fyne.Canvas`. In this example we create 3 text objects
-and then place them in a container using the `container.NewWithoutLayout()` function.
-As there is no layout set we can move the elements around like you see
-with `text2.Move()`.
+由于`fyne.Container`也是一个`fyne.CanvasObject`，我们可以将其设置为`fyne.Canvas`的content。
+在此示例中，我们创建 3 个文本对象，然后使用该函数将它们放在`Container`中。由于没有布局，我们可以像您看到`text2.Move()`的那样移动元素。
 
 ```go
 package main
@@ -54,12 +51,9 @@ func main() {
 	myWindow.ShowAndRun()
 }
 ```
+`fyne.Layout`是将元素组织在container的工具。
+取消对示例的注释，可以将容器改为包含2列的网格布局。
+运行此代码并调整窗口尺寸，可以验证布局如何自适应尺寸。
+另外需要注意，布局代码会覆盖`text2`指定位置。
 
-A `fyne.Layout` implements a method for organising items within a container.
-By uncommenting the `container.New()` line in this example you
-alter the container to use a grid layout with 2 columns. Run this code
-and try resizing the window to see how the layout automatically configures
-the contents of the window. Notice also that the manual position
-of `text2` is ignored by the layout code.
-
-To see more you can check out the [`Layout list`](layouts).
+要了解更多信息，您可以查看[`Layout 清单`](layouts).

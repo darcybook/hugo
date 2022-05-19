@@ -1,5 +1,5 @@
 +++
-title = "Data Binding"
+title = "数据绑定"
 description = "Data Binding"
 tags = [
     "go",
@@ -16,19 +16,17 @@ menu = "main"
 weight=80
 +++
 
+# 数据绑定
+---
 
-Data binding was introduced in Fyne v2.0.0 and makes it easier to connect
-many widgets to a data source that will update over time.
-the `data/binding` package has many helpful bindings that can manage most standard
-types that will be used in an application.
-A data binding can be managed using the binding API (for example `NewString`)
-or it can be connected to an external item of data like (`BindInt(*int)).
+数据绑定在`Fyne v2.0.0`中引入，这可以使组件和数据源更好的关联起来。
+`data/binding` 包有许多有用的绑定，可以用来管理应用中用到的几乎所有标准类型。
+数据绑定可以通过绑定API管理（例如`NewString`），也可以关联到外部的数据元素（`BindInt(*int)`）。
 
-Widgets that support binding typically have a `...WithData` constructor to
-set up the binding when creating the widget. You can also call `Bind()` and
-`Unbind()` to manage the data of an existing widget.
-The following example shows how you can manage a `String` data item that
-is bound to a simple `Label` widget.
+支持绑定的组件通常有一个`...WithData`构造函数，在创建组件时可以设置绑定的数据。
+当然你还可以调用`Bind()`或者`Unbind()`来管理组件绑定的数据。
+
+下面这个示例展示了如何`String`数据绑定到`Label`控件：
 
 ```go
 package main
@@ -59,5 +57,4 @@ func main() {
 	w.ShowAndRun()
 }
 ```
-
-You can find out more in the [data binding](/binding/) section of this site.
+在本站[数据绑定](/docs/binding/)中找到更多信息。

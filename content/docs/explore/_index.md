@@ -1,6 +1,6 @@
 ---
 bookCollapseSection: true
-title: Exploring Fyne
+title: 探索 Fyne
 weight: 20
 ---
 

@@ -1,5 +1,5 @@
 +++
-title = "Using the Preferences API"
+title = "首选项API"
 description = "Using the Preferences API"
 tags = [
     "go",
@@ -15,11 +15,18 @@ categories = [
 menu = "main"
 weight=70
 +++
+# 首选项API
+---
+## 使用首选项API
+---
+保存用户的配置是开发人员的常见任务，跨平台实现时非常复杂耗时。
+为了简化这个工作，`Fyne`使用一个API可以简单易懂的方式在文件系统上保存值，同时接管比较复杂的部分。
 
+让我们从API设置开始。
+它时首选项界面的一部分，首选项是用来保存和加载以后的不同类型的值，值包括bool、浮点、整型和字符串。
+它们每个都有三个不同函数：加载、带有回退值的加载和一个保存值。
+下面可以看到字符串类型的三个函数和它使用示例：
 
-Storing user configurations and values is a common task for application developers, but implementing it across multiple platforms can be tedious and time-consuming. To make it easier, Fyne has an API for storing values on the filesystem in a clean and understandable way while the complex parts are handled for you.
-
-Lets start with the setup of the API. It is part of the [Preferences](https://pkg.go.dev/fyne.io/fyne/v2?tab=doc#Preferences) interface where storage and loading functions exist for values of Bool, Float, Int and String. They each consist of three different functions, one for loading, one loading with a fallback value and lastly, one for storing values. An example of the three functions and their behaviour can be seen below for the String type:
 ```go
 // String looks up a string value for the key
 String(key string) string
@@ -28,8 +35,10 @@ StringWithFallback(key, fallback string) string
 // SetString saves a string value for the given key
 SetString(key string, value string)
 ```
+创建应用变量和调用`Preferences()`可以访问这些函数。
+注意有必要使用唯一ID（类似一个颠倒的url com.baidu.www）建立应用。
+要使用`app.NewWithID()`来使用创建应用，以便申请应用存储位置。
 
-These functions can be accessed through the created application variable and calling the `Preferences()` method on. Please note that it is necessary to create the apps with a unique ID (usually like a reversed url). This means that the application will need to be created using `app.NewWithID()` to have its own place to store values. It can roughly be used like the example below:
 ```go
 a := app.NewWithID("com.example.tutorial.preferences")
 [...]
@@ -39,14 +48,14 @@ expression := a.Preferences().String("RegularExpression")
 [...]
 ```
 
-To show this, we are going to build a simple little app that always closes after a set amount of time. This timeout should be user changeable and applied on the next start of the application.
-
-Let us start by creating a variable called `timeout` that will be used to store time in the form of `time.Duration`.
+为了说明这一点，我们建立一个简单应用，让应用在设定的时间后关闭。
+设定的时间用户可以修改，并在应用下次启动时生效。
 ```go
 var timeout time.Duration
 ```
+接着，我们建立一个下拉框，让用户选择超时时间，变量*秒数得到超时时间。
+最后`"AppTimeout"`key保存选择的值。
 
-Then we could create a select widget to let the user select the timeout from a couple pre-defined strings and then multiplying the timeout by the number of seconds that the string relates to. Lastly, the `"AppTimeout"` key is used to set the string value to the selected one.
 ```go
 timeoutSelector := widget.NewSelect([]string{"10 seconds", "30 seconds", "1 minute"}, func(selected string) {
     switch selected {
@@ -62,12 +71,16 @@ timeoutSelector := widget.NewSelect([]string{"10 seconds", "30 seconds", "1 minu
 })
 ```
 
-Now we want to grab the set value and if none exists, we want to have a fallback that sets the timeout to the shortest one possible to save the user time when waiting. This can be done by setting the selected value of `timeoutSelector` to the loaded value or the fallback if that happens to be the case. By doing it this way, the code inside the select widget will run for that specific value.
+紧接着，我们需要抓取设置的值，如果没有我们需要一个尽可能短的超时回退值，以节省用户等待时间。
+这可以通过设置`timeoutSelector`默认值，或者使用回退。
+通过这种方式，下拉框运行时会有一个默认值。
+
 ```go
 timeoutSelector.SetSelected(a.Preferences().StringWithFallback("AppTimeout", "10 seconds"))
 ```
 
-The last part will just be to have a function that starts in a separate goroutine and tells the application to quit after the selected timeout.
+最后，我们需要一个单独的goroutine函数运行，告诉应用在指定的时间后退出。
+
 ```go
 go func() {
     time.Sleep(timeout)
@@ -75,7 +88,7 @@ go func() {
 }()
 ```
 
-In the end, the resulting code should look something like this:
+最后，生成的代码应如下所示：
 
 ```go
 package main

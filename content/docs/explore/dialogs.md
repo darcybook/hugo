@@ -1,5 +1,5 @@
 +++
-title = "Dialog List"
+title = "对话框"
 description = "Dialog List"
 tags = [
     "go",
@@ -15,51 +15,52 @@ categories = [
 menu = "main"
 weight=50
 +++
-
-## Standard Dialogs
+# 对话框
+---
+## 标准对话框
 
 ---
 
 ### Color
 
-Allow users to pick a colour from a standard set (or any color in advanced mode).
+允许用户从标准集中选择颜色（或在高级模式下选择任何颜色）。
 
-![图 39](/mk_img/dialogs-35-356-7.png)  
+![Color](/mk_img/dialogs-35-356-7.png)  
 
 
 ### Confirm
 
-Ask for conformation of an action.
+要求去确认一个动作。
 
-![图 40](/mk_img/dialogs-35-398-1.png)  
+![Confirm](/mk_img/dialogs-35-398-1.png)  
 
 
 ### FileOpen
 
-Present this to ask user to choose a file to use inside the app.
-The actual dialog displayed will depend on the current operating system.
+用户在应用内询问选择一个文件。
+实际的对话框显示，根据当前的操作系统有所不同。
 
-![图 41](/mk_img/dialogs-35-113-0.png)  
+![FileOpen](/mk_img/dialogs-35-113-0.png)  
 
 
 ### Form
 
-Get various input elements in a dialog, with validation.
+对话框中可以输入不容的元素，进行验证。
 
-![图 42](/mk_img/dialogs-35-272-8.png)  
+![Form](/mk_img/dialogs-35-272-8.png)  
 
 
 ### Information
 
-A simple way to present some information to the app user.
+一个向用户展示消息的简单途径。
 
-![图 43](/mk_img/dialogs-35-470-7.png)  
+![Information](/mk_img/dialogs-35-470-7.png)  
 
 
 ### Custom
 
-Present any content inside a dialog container.
+展示可以放在对话容器中的所有内容。
 
-![图 44](/mk_img/dialogs-36-171-7.png)  
+![Custom](/mk_img/dialogs-36-171-7.png)  
 
 
