@@ -1,23 +1,21 @@
 ---
-title: Binding Simple Widgets
+title: 绑定简单组件
 weight: 20
 redirect_from:
 - /tour/binding/simple
 ---
 
-The simplest form of binding a widget is to pass it
-a bound item as a value instead of a static value.
-Many widgets provide a `WithData` constructor that will
-accept a typed data binding item. To set up the binding
-all you need to do is pass the right type in.
+# 绑定简单组件
+---
 
-Although this may not look like much of a benefit in the
-initial code you can then see how it ensures that the
-displayed content is always up to date with the source
-of the data.
-You will notice how we did not need to call `Refresh()`
-on the `Label` widget or even keep a reference to it
-and yet it updates appropriately.
+绑定小部件的最简单形式使用绑定元素而不是静态值。
+许多组件提供`WithData`构造函数接受一个数据类型绑定。
+要设置绑定，您需要做的就是传入正确的类型。
+
+尽管这在初始代码中可能看起来不是很大的好处，但您可以看到它如何确保显示的内容始终与数据源保持同步。您会注意到我们不需要调用小部件，甚至不需要保留对它的引用，但它会相应地更新。
+
+一开始可能在代码中看它没有什么用处，但你能看到显示内容怎么和数据源保持同步的。
+你可以看到我们不需要用`Refresh()`刷新`Label`，label可以自己更新。
 
 ```go
 package main
@@ -49,5 +47,7 @@ func main() {
 }
 ```
 
+下一步我们介绍如何设置[双向绑定](twoway)。
+
 In the next step we look at how to set up widgets 
-that edit values through [two way](/binding/twoway) binding.
+that edit values through  binding.
