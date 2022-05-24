@@ -1,6 +1,6 @@
 ---
 bookCollapseSection: true
-title: Extending Fyne
+title: `Fyne`扩展
 weight: 70
 ---
 
